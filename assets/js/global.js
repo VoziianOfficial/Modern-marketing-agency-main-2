@@ -67,6 +67,80 @@
     };
 
 
+    const formatConfigString = (value) => {
+        if (typeof value !== "string") {
+            return value;
+        }
+
+        return value.replace(
+            /\{companyName\}/g,
+            safeText(config.companyName)
+        );
+    };
+
+
+    const applyTemplatePlaceholders = () => {
+        if (!config.companyName || !body) {
+            return;
+        }
+
+        const replaceAttribute = (element, attribute) => {
+            const value = element.getAttribute(attribute);
+
+            if (
+                typeof value === "string" &&
+                value.includes("{companyName}")
+            ) {
+                element.setAttribute(
+                    attribute,
+                    formatConfigString(value)
+                );
+            }
+        };
+
+        qsa("meta[content]").forEach((element) => {
+            replaceAttribute(element, "content");
+        });
+
+        qsa("[aria-label], [title], [alt]").forEach((element) => {
+            replaceAttribute(element, "aria-label");
+            replaceAttribute(element, "title");
+            replaceAttribute(element, "alt");
+        });
+
+        const walker = doc.createTreeWalker(
+            body,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode(node) {
+                    const parent = node.parentElement;
+
+                    if (
+                        !parent ||
+                        parent.closest("script, style")
+                    ) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+
+                    return node.nodeValue.includes("{companyName}")
+                        ? NodeFilter.FILTER_ACCEPT
+                        : NodeFilter.FILTER_SKIP;
+                }
+            }
+        );
+
+        let node = walker.nextNode();
+
+        while (node) {
+            node.nodeValue = formatConfigString(
+                node.nodeValue
+            );
+
+            node = walker.nextNode();
+        }
+    };
+
+
     const getScrollbarWidth = () => {
         return Math.max(
             0,
@@ -126,10 +200,14 @@
     
 
     const applyConfigText = () => {
-        qsa("[data-config-text]").forEach((element) => {
-            const path = element.getAttribute(
-                "data-config-text"
-            );
+        qsa("[data-config-text], [data-config]").forEach((element) => {
+            const path =
+                element.getAttribute(
+                    "data-config-text"
+                ) ||
+                element.getAttribute(
+                    "data-config"
+                );
 
             const value = getNestedValue(
                 config,
@@ -140,13 +218,68 @@
                 typeof value === "string" ||
                 typeof value === "number"
             ) {
-                element.textContent = String(value);
+                element.textContent = String(
+                    formatConfigString(value)
+                );
             }
         });
     };
 
 
+    const applyConfigAttribute = (
+        selector,
+        configAttribute,
+        targetAttribute,
+        transform = (value) => value
+    ) => {
+        qsa(selector).forEach((element) => {
+            const path = element.getAttribute(
+                configAttribute
+            );
+
+            const value = getNestedValue(
+                config,
+                path
+            );
+
+            if (
+                typeof value !== "string" &&
+                typeof value !== "number"
+            ) {
+                return;
+            }
+
+            const prefix =
+                element.getAttribute(
+                    "data-config-prefix"
+                ) || "";
+
+            const suffix =
+                element.getAttribute(
+                    "data-config-suffix"
+                ) || "";
+
+            element.setAttribute(
+                targetAttribute,
+                transform(
+                    String(
+                        formatConfigString(
+                            `${prefix}${String(value)}${suffix}`
+                        )
+                    )
+                )
+            );
+        });
+    };
+
+
     const applyConfigImages = () => {
+        applyConfigAttribute(
+            "[data-config-src]",
+            "data-config-src",
+            "src"
+        );
+
         if (config.logo) {
             qsa("[data-config-logo]").forEach((image) => {
                 image.src = config.logo;
@@ -157,7 +290,45 @@
             qsa("[data-config-favicon]").forEach((link) => {
                 link.href = config.favicon;
             });
+
+            qsa('link[rel~="icon"]').forEach((link) => {
+                link.href = config.favicon;
+            });
         }
+    };
+
+
+    const applyConfigLinks = () => {
+        applyConfigAttribute(
+            "[data-config-href]",
+            "data-config-href",
+            "href",
+            (value) => {
+                if (
+                    value.includes("@") &&
+                    !value.startsWith("mailto:")
+                ) {
+                    return `mailto:${value}`;
+                }
+
+                return value;
+            }
+        );
+
+        applyConfigAttribute(
+            "[data-config-value]",
+            "data-config-value",
+            "value"
+        );
+    };
+
+
+    const applyConfigAriaLabels = () => {
+        applyConfigAttribute(
+            "[data-config-aria-label]",
+            "data-config-aria-label",
+            "aria-label"
+        );
     };
 
 
@@ -207,10 +378,10 @@
                 "ecommerce",
 
             tracking:
-                "tracking",
+                "trackingAutomation",
 
             "tracking-automation":
-                "tracking",
+                "trackingAutomation",
 
             privacy:
                 "privacy",
@@ -227,10 +398,7 @@
 
 
     const applyDocumentTitle = () => {
-        if (
-            !config.pageTitles ||
-            !config.browserTitle
-        ) {
+        if (!config.pageTitles) {
             return;
         }
 
@@ -243,13 +411,8 @@
             return;
         }
 
-        const separator =
-            config.titleSeparator || " — ";
-
         doc.title =
-            pageTitle +
-            separator +
-            config.browserTitle;
+            formatConfigString(pageTitle);
     };
 
 
@@ -294,8 +457,11 @@
 
     const hydrateSiteConfig = () => {
         applyConfigText();
+        applyConfigLinks();
         applyConfigImages();
+        applyConfigAriaLabels();
         applyConfigEmail();
+        applyTemplatePlaceholders();
         applyDocumentTitle();
         applyMetaDescription();
         applyCurrentYear();
@@ -1126,6 +1292,8 @@
                     form
                 );
 
+                let isSubmitting = false;
+
 
                 const showStatus = (
                     message,
@@ -1178,6 +1346,10 @@
                     async (event) => {
                         event.preventDefault();
 
+                        if (isSubmitting) {
+                            return;
+                        }
+
 
                         if (
                             !form.checkValidity()
@@ -1213,6 +1385,9 @@
                             submitButton.textContent =
                                 "Sending...";
                         }
+
+
+                        isSubmitting = true;
 
 
                         clearStatus();
@@ -1268,14 +1443,10 @@
                             }
 
 
-                            const success =
-                                result
-                                    ? result.success !==
-                                      false
-                                    : true;
-
-
-                            if (!success) {
+                            if (
+                                !result ||
+                                result.success !== true
+                            ) {
                                 throw new Error(
                                     result?.message ||
                                     "Something went wrong. Please try again."
@@ -1284,9 +1455,9 @@
 
 
                             const message =
+                                config.contactSuccessMessage ||
                                 result?.message ||
-                                rawText.trim() ||
-                                "Successfully sent. We’ll be in touch soon.";
+                                "Successfully sent!";
 
 
                             showStatus(
@@ -1317,6 +1488,8 @@
                             );
 
                         } finally {
+                            isSubmitting = false;
+
                             if (submitButton) {
                                 submitButton.disabled =
                                     false;

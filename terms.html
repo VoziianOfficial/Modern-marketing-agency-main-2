@@ -10,7 +10,7 @@
 
     <meta
         name="description"
-        content="Terms and Conditions governing access to and use of the Northpeak Performance website and information provided through it."
+        content="Terms and Conditions governing access to and use of the {companyName} website and information provided through it."
     >
 
     <meta
@@ -19,13 +19,13 @@
     >
 
     <title>
-        Terms &amp; Conditions — Northpeak Performance
+        Terms &amp; Conditions — {companyName}
     </title>
 
     <link
         rel="icon"
-        type="image/svg+xml"
-        href="assets/img/brand/favicon.svg"
+        type="image/png"
+        href="assets/icons/favicon.png"
         data-config-favicon
     >
 
@@ -69,11 +69,11 @@
                 <a
                     class="site-logo"
                     href="index.html"
-                    aria-label="Northpeak Performance home"
+                    aria-label="{companyName} home" data-config-aria-label="companyName" data-config-suffix=" home"
                 >
                     <img
                         class="site-logo__mark"
-                        src="assets/img/brand/logo.svg"
+                        src="assets/icons/logo.svg"
                         alt=""
                         width="46"
                         height="46"
@@ -84,7 +84,7 @@
                         class="site-logo__name"
                         data-config-text="companyName"
                     >
-                        Northpeak Performance
+                        {companyName}
                     </span>
                 </a>
 
@@ -98,8 +98,7 @@
                         <li class="site-nav__item">
                             <a
                                 class="site-nav__link"
-                                href="index.html"
-                            >
+                                href="index.html">
                                 Home
                             </a>
                         </li>
@@ -107,8 +106,7 @@
                         <li class="site-nav__item">
                             <a
                                 class="site-nav__link"
-                                href="index.html#about"
-                            >
+                                href="index.html#about">
                                 About
                             </a>
                         </li>
@@ -118,26 +116,25 @@
                             <a
                                 class="site-nav__link"
                                 href="index.html#services"
-                                aria-haspopup="true"
-                            >
+                                aria-haspopup="true">
                                 Services
                             </a>
 
                             <div class="site-nav__dropdown">
 
-                                <a href="google-ads-management.html">
+                                <a href="google-ads-management.html" data-config-href="services.googleAds.url" data-config-text="services.googleAds.title">
                                     Google Ads Management
                                 </a>
 
-                                <a href="lead-generation.html">
+                                <a href="lead-generation.html" data-config-href="services.leadGeneration.url" data-config-text="services.leadGeneration.title">
                                     Lead Generation
                                 </a>
 
-                                <a href="ecommerce-advertising.html">
+                                <a href="ecommerce-advertising.html" data-config-href="services.ecommerce.url" data-config-text="services.ecommerce.title">
                                     E-commerce Advertising
                                 </a>
 
-                                <a href="tracking-automation.html">
+                                <a href="tracking-automation.html" data-config-href="services.trackingAutomation.url" data-config-text="services.trackingAutomation.title">
                                     Tracking &amp; Automation
                                 </a>
 
@@ -148,8 +145,7 @@
                         <li class="site-nav__item">
                             <a
                                 class="site-nav__link"
-                                href="index.html#contact"
-                            >
+                                href="index.html#contact">
                                 Contact
                             </a>
                         </li>
@@ -164,7 +160,7 @@
                         class="btn btn--primary site-header__cta"
                         href="index.html#contact"
                     >
-                        Get a Free Audit
+                        <span data-config-text="primaryCTA">Get a Free Audit</span>
                     </a>
 
                     <button
@@ -210,29 +206,25 @@
                 >
                     <a
                         class="mobile-menu__link"
-                        href="index.html"
-                    >
+                        href="index.html">
                         Home
                     </a>
 
                     <a
                         class="mobile-menu__link"
-                        href="index.html#about"
-                    >
+                        href="index.html#about">
                         About
                     </a>
 
                     <a
                         class="mobile-menu__link"
-                        href="index.html#services"
-                    >
+                        href="index.html#services">
                         Services
                     </a>
 
                     <a
                         class="mobile-menu__link"
-                        href="index.html#contact"
-                    >
+                        href="index.html#contact">
                         Contact
                     </a>
                 </nav>
@@ -242,29 +234,29 @@
 
                     <a
                         class="mobile-menu__service"
-                        href="google-ads-management.html"
-                    >
+                        href="google-ads-management.html" data-config-href="services.googleAds.url"
+                     data-config-text="services.googleAds.shortTitle">
                         Google Ads
                     </a>
 
                     <a
                         class="mobile-menu__service"
-                        href="lead-generation.html"
-                    >
+                        href="lead-generation.html" data-config-href="services.leadGeneration.url"
+                     data-config-text="services.leadGeneration.title">
                         Lead Generation
                     </a>
 
                     <a
                         class="mobile-menu__service"
-                        href="ecommerce-advertising.html"
-                    >
+                        href="ecommerce-advertising.html" data-config-href="services.ecommerce.url"
+                     data-config-text="services.ecommerce.shortTitle">
                         E-commerce
                     </a>
 
                     <a
                         class="mobile-menu__service"
-                        href="tracking-automation.html"
-                    >
+                        href="tracking-automation.html" data-config-href="services.trackingAutomation.url"
+                     data-config-text="services.trackingAutomation.title">
                         Tracking &amp; Automation
                     </a>
 
@@ -277,11 +269,11 @@
 
                 <a
                     class="mobile-menu__email"
-                    href="mailto:hello@northpeakperformance.com"
+                    href="mailto:"
                     data-config-email-link
                 >
                     <span data-config-text="email">
-                        hello@northpeakperformance.com
+                        Email us
                     </span>
                 </a>
 
@@ -533,7 +525,7 @@
                     <p class="page-hero__text">
                         The terms governing access to,
                         use of and interaction with the
-                        Northpeak Performance website.
+                        {companyName} website.
                     </p>
 
                     <div class="page-hero__actions">
@@ -759,11 +751,11 @@
                             </p>
 
                             <a
-                                href="mailto:hello@northpeakperformance.com"
+                                href="mailto:"
                                 data-config-email-link
                             >
                                 <span data-config-text="email">
-                                    hello@northpeakperformance.com
+                                    Email us
                                 </span>
                             </a>
 
@@ -790,7 +782,7 @@
                             <p>
                                 These Terms &amp; Conditions apply
                                 to your access to and use of the
-                                Northpeak Performance website,
+                                {companyName} website,
                                 its content and its enquiry forms.
                             </p>
 
@@ -810,7 +802,7 @@
 
                             <p>
                                 This website provides information
-                                about Northpeak Performance,
+                                about {companyName},
                                 performance marketing services,
                                 Google Ads management, lead generation,
                                 e-commerce advertising, analytics
@@ -906,7 +898,7 @@
                             <p>
                                 Information on this website is intended
                                 to provide a general overview of
-                                Northpeak Performance services.
+                                {companyName} services.
                             </p>
 
                             <p>
@@ -980,7 +972,7 @@
                                 <li>
                                     Personal information is handled
                                     in accordance with our
-                                    <a href="privacy.html">
+                                    <a href="privacy.html" data-config-href="legal.privacy.url" data-config-text="legal.privacy.title">
                                         Privacy Policy
                                     </a>.
                                 </li>
@@ -1004,7 +996,7 @@
                             <p>
                                 Marketing and advertising performance
                                 can be affected by many factors outside
-                                the direct control of Northpeak Performance.
+                                the direct control of {companyName}.
                             </p>
 
 
@@ -1083,7 +1075,7 @@
                                 Unless otherwise stated, website design,
                                 written content, visual elements,
                                 original graphics and branding associated
-                                with Northpeak Performance are protected
+                                with {companyName} are protected
                                 by applicable intellectual property rights.
                             </p>
 
@@ -1198,7 +1190,7 @@
 
                             <p>
                                 To the extent permitted by applicable law,
-                                Northpeak Performance should not be liable
+                                {companyName} should not be liable
                                 for indirect or consequential losses
                                 arising solely from use of, inability
                                 to use or reliance on general information
@@ -1255,7 +1247,7 @@
                             <p>
                                 If you have a question about these
                                 Terms &amp; Conditions, contact
-                                Northpeak Performance by email.
+                                {companyName} by email.
                             </p>
 
 
@@ -1280,7 +1272,7 @@
 
                                     <a
                                         class="btn btn--primary"
-                                        href="mailto:hello@northpeakperformance.com"
+                                        href="mailto:"
                                         data-config-email-link
                                     >
                                         Email Us
@@ -1302,7 +1294,7 @@
 
                             <a
                                 class="legal-page-nav__link"
-                                href="privacy.html"
+                                href="privacy.html" data-config-href="legal.privacy.url"
                             >
                                 <span>
                                     Privacy information
@@ -1316,7 +1308,7 @@
 
                             <a
                                 class="legal-page-nav__link"
-                                href="terms.html"
+                                href="terms.html" data-config-href="legal.terms.url"
                                 aria-current="page"
                             >
                                 <span>
@@ -1331,7 +1323,7 @@
 
                             <a
                                 class="legal-page-nav__link"
-                                href="cookies.html"
+                                href="cookies.html" data-config-href="legal.cookies.url"
                             >
                                 <span>
                                     Cookie information
@@ -1372,7 +1364,7 @@
                     >
                         <img
                             class="site-logo__mark"
-                            src="assets/img/brand/logo.svg"
+                            src="assets/icons/logo.svg"
                             alt=""
                             width="46"
                             height="46"
@@ -1384,7 +1376,7 @@
                             class="site-logo__name"
                             data-config-text="companyName"
                         >
-                            Northpeak Performance
+                            {companyName}
                         </span>
                     </a>
 
@@ -1439,19 +1431,19 @@
                         class="site-footer__nav"
                         aria-label="Footer services"
                     >
-                        <a href="google-ads-management.html">
+                        <a href="google-ads-management.html" data-config-href="services.googleAds.url" data-config-text="services.googleAds.shortTitle">
                             Google Ads
                         </a>
 
-                        <a href="lead-generation.html">
+                        <a href="lead-generation.html" data-config-href="services.leadGeneration.url" data-config-text="services.leadGeneration.title">
                             Lead Generation
                         </a>
 
-                        <a href="ecommerce-advertising.html">
+                        <a href="ecommerce-advertising.html" data-config-href="services.ecommerce.url" data-config-text="services.ecommerce.shortTitle">
                             E-commerce
                         </a>
 
-                        <a href="tracking-automation.html">
+                        <a href="tracking-automation.html" data-config-href="services.trackingAutomation.url" data-config-text="services.trackingAutomation.title">
                             Tracking &amp; Automation
                         </a>
                     </nav>
@@ -1467,11 +1459,11 @@
 
                     <a
                         class="site-footer__email"
-                        href="mailto:hello@northpeakperformance.com"
+                        href="mailto:"
                         data-config-email-link
                     >
                         <span data-config-text="email">
-                            hello@northpeakperformance.com
+                            Email us
                         </span>
                     </a>
 
@@ -1481,20 +1473,20 @@
                         aria-label="Legal navigation"
                         style="margin-top: 22px;"
                     >
-                        <a href="privacy.html">
+                        <a href="privacy.html" data-config-href="legal.privacy.url" data-config-text="legal.privacy.title">
                             Privacy Policy
                         </a>
 
                         <a
-                            href="terms.html"
+                            href="terms.html" data-config-href="legal.terms.url"
                             aria-current="page"
-                        >
+                         data-config-text="legal.terms.title">
                             Terms &amp; Conditions
                         </a>
 
-                        <a href="cookies.html">
-                            Cookie Policy
-                        </a>
+                        <a href="cookies.html" data-config-href="legal.cookies.url" data-config-text="legal.cookies.title">
+                    Cookie Policy
+                </a>
                     </nav>
 
                 </div>
@@ -1506,9 +1498,9 @@
 
                 <p
                     class="site-footer__disclaimer"
-                    data-config-text="footer.disclaimer"
+                    data-config-text="disclaimer"
                 >
-                    Northpeak Performance is an independent
+                    {companyName} is an independent
                     performance marketing agency. Google,
                     Google Ads, YouTube, Performance Max and
                     related product names are trademarks of
@@ -1522,10 +1514,10 @@
                     <span data-current-year>2026</span>
 
                     <span data-config-text="companyName">
-                        Northpeak Performance
+                        {companyName}
                     </span>.
 
-                    All rights reserved.
+                    <span>All rights reserved.</span>
                 </p>
 
             </div>
@@ -1556,10 +1548,9 @@
 
 
             <p class="cookie-consent__text">
-                We use essential cookies and limited analytics
-                to improve this website.
+                <span>We use essential cookies and limited analytics to improve this website.</span>
 
-                <a href="cookies.html">
+                <a href="cookies.html" data-config-href="legal.cookies.url" data-config-text="legal.cookies.title">
                     Cookie Policy
                 </a>
             </p>
@@ -1593,7 +1584,7 @@
     
 
     <script
-        src="assets/config/config.js"
+        src="config/config.js"
         defer
     ></script>
 

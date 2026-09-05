@@ -3,16 +3,38 @@
 declare(strict_types=1);
 
 
+ini_set(
+    'display_errors',
+    '0'
+);
 
+ini_set(
+    'html_errors',
+    '0'
+);
 
+error_reporting(E_ALL);
 
+ob_start();
 
+$recipientEmail = 'hello@novaperformance.agency';
 
-$recipientEmail = 'hello@northpeakperformance.com';
+$siteName = 'NOVA Performance';
 
-$siteName = 'Northpeak Performance';
+$successMessage = 'Successfully sent!';
 
-$successMessage = 'Successfully sent. We’ll be in touch soon.';
+if (
+    !filter_var(
+        $recipientEmail,
+        FILTER_VALIDATE_EMAIL
+    )
+) {
+    sendJsonResponse(
+        false,
+        'The message could not be sent right now. Please try again later.',
+        500
+    );
+}
 
 
 
@@ -22,6 +44,10 @@ function sendJsonResponse(
     string $message,
     int $statusCode = 200
 ): void {
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
+
     http_response_code($statusCode);
 
     header(
@@ -51,6 +77,10 @@ if (
     !isset($_SERVER['REQUEST_METHOD']) ||
     $_SERVER['REQUEST_METHOD'] !== 'POST'
 ) {
+    header(
+        'Allow: POST'
+    );
+
     sendJsonResponse(
         false,
         'Invalid request method.',
@@ -99,6 +129,12 @@ function cleanSingleLine(string $value): string
     );
 
     $value = preg_replace(
+        '/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/',
+        '',
+        $value
+    ) ?? '';
+
+    $value = preg_replace(
         '/\s+/',
         ' ',
         $value
@@ -124,6 +160,12 @@ function cleanMultiLine(string $value): string
         $value
     );
 
+    $value = preg_replace(
+        '/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/',
+        '',
+        $value
+    ) ?? '';
+
     return trim($value);
 }
 
@@ -141,6 +183,24 @@ function limitString(
         0,
         $maxLength
     );
+}
+
+
+function cleanHeaderText(string $value): string
+{
+    $value = cleanSingleLine($value);
+
+    $value = str_replace(
+        [
+            '"',
+            '<',
+            '>'
+        ],
+        '',
+        $value
+    );
+
+    return trim($value);
 }
 
 
@@ -176,6 +236,10 @@ $helpWith = cleanSingleLine(
 
 $message = cleanMultiLine(
     getPostValue('message')
+);
+
+$privacyConsent = cleanSingleLine(
+    getPostValue('privacy_consent')
 );
 
 
@@ -231,6 +295,11 @@ $helpWith = limitString(
 $message = limitString(
     $message,
     5000
+);
+
+$privacyConsent = limitString(
+    $privacyConsent,
+    20
 );
 
 
@@ -294,6 +363,25 @@ if ($message === '') {
     );
 }
 
+if (
+    !in_array(
+        strtolower($privacyConsent),
+        [
+            '1',
+            'on',
+            'true',
+            'yes'
+        ],
+        true
+    )
+) {
+    sendJsonResponse(
+        false,
+        'Please accept the Privacy Policy.',
+        422
+    );
+}
+
 
 
 
@@ -343,7 +431,6 @@ $allowedBusinessTypes = [
     'Other'
 ];
 
-
 $allowedHelpOptions = [
     'Google Ads Management',
     'Performance Max',
@@ -354,7 +441,6 @@ $allowedHelpOptions = [
     'Account Audit',
     'Other'
 ];
-
 
 $allowedBudgets = [
     '',
@@ -503,6 +589,10 @@ $emailBody .=
 
 
 $emailBody .=
+    "Privacy Consent:\nAccepted\n\n";
+
+
+$emailBody .=
     "==============================\n";
 
 $emailBody .=
@@ -517,7 +607,9 @@ if (
 ) {
     $emailBody .=
         "IP: " .
-        $_SERVER['REMOTE_ADDR'] .
+        cleanSingleLine(
+            (string) $_SERVER['REMOTE_ADDR']
+        ) .
         "\n";
 }
 
@@ -562,6 +654,11 @@ if ($isValidHost) {
 }
 
 
+$headerSiteName = cleanHeaderText($siteName);
+
+$replyToName = cleanHeaderText($name);
+
+
 $headers = [];
 
 $headers[] =
@@ -572,14 +669,14 @@ $headers[] =
 
 $headers[] =
     'From: ' .
-    $siteName .
+    $headerSiteName .
     ' <' .
     $fromEmail .
     '>';
 
 $headers[] =
     'Reply-To: ' .
-    $name .
+    $replyToName .
     ' <' .
     $email .
     '>';

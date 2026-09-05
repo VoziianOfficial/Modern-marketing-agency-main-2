@@ -19,7 +19,7 @@
     >
 
     <title>
-        E-commerce Advertising — Northpeak Performance
+        E-commerce Advertising — {companyName}
     </title>
 
 
@@ -27,8 +27,8 @@
 
     <link
         rel="icon"
-        type="image/svg+xml"
-        href="assets/img/brand/favicon.svg"
+        type="image/png"
+        href="assets/icons/favicon.png"
         data-config-favicon
     >
 
@@ -87,12 +87,12 @@
                 <a
                     class="site-logo"
                     href="index.html"
-                    aria-label="Northpeak Performance home"
+                    aria-label="{companyName} home" data-config-aria-label="companyName" data-config-suffix=" home"
                 >
 
                     <img
                         class="site-logo__mark"
-                        src="assets/img/brand/logo.svg"
+                        src="assets/icons/logo.svg"
                         alt=""
                         width="46"
                         height="46"
@@ -103,7 +103,7 @@
                         class="site-logo__name"
                         data-config-text="companyName"
                     >
-                        Northpeak Performance
+                        {companyName}
                     </span>
 
                 </a>
@@ -122,8 +122,7 @@
 
                             <a
                                 class="site-nav__link"
-                                href="index.html"
-                            >
+                                href="index.html">
                                 Home
                             </a>
 
@@ -134,8 +133,7 @@
 
                             <a
                                 class="site-nav__link"
-                                href="index.html#about"
-                            >
+                                href="index.html#about">
                                 About
                             </a>
 
@@ -147,30 +145,29 @@
                             <a
                                 class="site-nav__link"
                                 href="index.html#services"
-                                aria-haspopup="true"
-                            >
+                                aria-haspopup="true">
                                 Services
                             </a>
 
 
                             <div class="site-nav__dropdown">
 
-                                <a href="google-ads-management.html">
+                                <a href="google-ads-management.html" data-config-href="services.googleAds.url" data-config-text="services.googleAds.title">
                                     Google Ads Management
                                 </a>
 
-                                <a href="lead-generation.html">
+                                <a href="lead-generation.html" data-config-href="services.leadGeneration.url" data-config-text="services.leadGeneration.title">
                                     Lead Generation
                                 </a>
 
                                 <a
-                                    href="ecommerce-advertising.html"
+                                    href="ecommerce-advertising.html" data-config-href="services.ecommerce.url"
                                     aria-current="page"
-                                >
+                                 data-config-text="services.ecommerce.title">
                                     E-commerce Advertising
                                 </a>
 
-                                <a href="tracking-automation.html">
+                                <a href="tracking-automation.html" data-config-href="services.trackingAutomation.url" data-config-text="services.trackingAutomation.title">
                                     Tracking &amp; Automation
                                 </a>
 
@@ -183,8 +180,7 @@
 
                             <a
                                 class="site-nav__link"
-                                href="index.html#contact"
-                            >
+                                href="index.html#contact">
                                 Contact
                             </a>
 
@@ -203,7 +199,7 @@
                         class="btn btn--primary site-header__cta"
                         href="index.html#contact"
                     >
-                        Get a Free Audit
+                        <span data-config-text="primaryCTA">Get a Free Audit</span>
                     </a>
 
 
@@ -254,29 +250,25 @@
 
                     <a
                         class="mobile-menu__link"
-                        href="index.html"
-                    >
+                        href="index.html">
                         Home
                     </a>
 
                     <a
                         class="mobile-menu__link"
-                        href="index.html#about"
-                    >
+                        href="index.html#about">
                         About
                     </a>
 
                     <a
                         class="mobile-menu__link"
-                        href="index.html#services"
-                    >
+                        href="index.html#services">
                         Services
                     </a>
 
                     <a
                         class="mobile-menu__link"
-                        href="index.html#contact"
-                    >
+                        href="index.html#contact">
                         Contact
                     </a>
 
@@ -287,30 +279,30 @@
 
                     <a
                         class="mobile-menu__service"
-                        href="google-ads-management.html"
-                    >
+                        href="google-ads-management.html" data-config-href="services.googleAds.url"
+                     data-config-text="services.googleAds.shortTitle">
                         Google Ads
                     </a>
 
                     <a
                         class="mobile-menu__service"
-                        href="lead-generation.html"
-                    >
+                        href="lead-generation.html" data-config-href="services.leadGeneration.url"
+                     data-config-text="services.leadGeneration.title">
                         Lead Generation
                     </a>
 
                     <a
                         class="mobile-menu__service"
-                        href="ecommerce-advertising.html"
+                        href="ecommerce-advertising.html" data-config-href="services.ecommerce.url"
                         aria-current="page"
-                    >
+                     data-config-text="services.ecommerce.shortTitle">
                         E-commerce
                     </a>
 
                     <a
                         class="mobile-menu__service"
-                        href="tracking-automation.html"
-                    >
+                        href="tracking-automation.html" data-config-href="services.trackingAutomation.url"
+                     data-config-text="services.trackingAutomation.title">
                         Tracking &amp; Automation
                     </a>
 
@@ -323,11 +315,11 @@
 
                 <a
                     class="mobile-menu__email"
-                    href="mailto:hello@northpeakperformance.com"
+                    href="mailto:"
                     data-config-email-link
                 >
                     <span data-config-text="email">
-                        hello@northpeakperformance.com
+                        Email us
                     </span>
                 </a>
 
@@ -2414,12 +2406,12 @@
                             class="btn btn--primary"
                             href="index.html#contact"
                         >
-                            Get a Free Audit
+                            <span data-config-text="primaryCTA">Get a Free Audit</span>
                         </a>
 
                         <a
                             class="btn btn--light"
-                            href="tracking-automation.html"
+                            href="tracking-automation.html" data-config-href="services.trackingAutomation.url"
                         >
                             Explore Tracking
                         </a>
@@ -2455,7 +2447,7 @@
 
                         <img
                             class="site-logo__mark"
-                            src="assets/img/brand/logo.svg"
+                            src="assets/icons/logo.svg"
                             alt=""
                             width="46"
                             height="46"
@@ -2467,7 +2459,7 @@
                             class="site-logo__name"
                             data-config-text="companyName"
                         >
-                            Northpeak Performance
+                            {companyName}
                         </span>
 
                     </a>
@@ -2530,22 +2522,22 @@
                         aria-label="Footer services"
                     >
 
-                        <a href="google-ads-management.html">
+                        <a href="google-ads-management.html" data-config-href="services.googleAds.url" data-config-text="services.googleAds.shortTitle">
                             Google Ads
                         </a>
 
-                        <a href="lead-generation.html">
+                        <a href="lead-generation.html" data-config-href="services.leadGeneration.url" data-config-text="services.leadGeneration.title">
                             Lead Generation
                         </a>
 
                         <a
-                            href="ecommerce-advertising.html"
+                            href="ecommerce-advertising.html" data-config-href="services.ecommerce.url"
                             aria-current="page"
-                        >
+                         data-config-text="services.ecommerce.shortTitle">
                             E-commerce
                         </a>
 
-                        <a href="tracking-automation.html">
+                        <a href="tracking-automation.html" data-config-href="services.trackingAutomation.url" data-config-text="services.trackingAutomation.title">
                             Tracking &amp; Automation
                         </a>
 
@@ -2564,12 +2556,12 @@
 
                     <a
                         class="site-footer__email"
-                        href="mailto:hello@northpeakperformance.com"
+                        href="mailto:"
                         data-config-email-link
                     >
 
                         <span data-config-text="email">
-                            hello@northpeakperformance.com
+                            Email us
                         </span>
 
                     </a>
@@ -2581,17 +2573,17 @@
                         style="margin-top: 22px;"
                     >
 
-                        <a href="privacy.html">
+                        <a href="privacy.html" data-config-href="legal.privacy.url" data-config-text="legal.privacy.title">
                             Privacy Policy
                         </a>
 
-                        <a href="terms.html">
+                        <a href="terms.html" data-config-href="legal.terms.url" data-config-text="legal.terms.title">
                             Terms &amp; Conditions
                         </a>
 
-                        <a href="cookies.html">
-                            Cookie Policy
-                        </a>
+                        <a href="cookies.html" data-config-href="legal.cookies.url" data-config-text="legal.cookies.title">
+                    Cookie Policy
+                </a>
 
                     </nav>
 
@@ -2606,9 +2598,9 @@
 
                 <p
                     class="site-footer__disclaimer"
-                    data-config-text="footer.disclaimer"
+                    data-config-text="disclaimer"
                 >
-                    Northpeak Performance is an independent
+                    {companyName} is an independent
                     performance marketing agency. Google,
                     Google Ads, YouTube, Performance Max and
                     related product names are trademarks of
@@ -2623,10 +2615,10 @@
                     <span data-current-year>2026</span>
 
                     <span data-config-text="companyName">
-                        Northpeak Performance
+                        {companyName}
                     </span>.
 
-                    All rights reserved.
+                    <span>All rights reserved.</span>
 
                 </p>
 
@@ -2659,10 +2651,9 @@
 
             <p class="cookie-consent__text">
 
-                We use essential cookies and limited analytics
-                to improve this website.
+                <span>We use essential cookies and limited analytics to improve this website.</span>
 
-                <a href="cookies.html">
+                <a href="cookies.html" data-config-href="legal.cookies.url" data-config-text="legal.cookies.title">
                     Cookie Policy
                 </a>
 
@@ -2697,7 +2688,7 @@
     
 
     <script
-        src="assets/config/config.js"
+        src="config/config.js"
         defer
     ></script>
 
