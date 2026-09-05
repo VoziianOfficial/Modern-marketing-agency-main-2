@@ -925,7 +925,7 @@
 
 
 .home-parallax {
-    padding-block: clamp(50px, 5vw, 80px);
+    padding-block: clamp(34px, 4vw, 56px);
 
     background: var(--color-white);
 }
@@ -933,7 +933,7 @@
 .home-parallax__frame {
     position: relative;
 
-    min-height: clamp(430px, 58vw, 650px);
+    min-height: clamp(330px, 42vw, 470px);
 
     overflow: hidden;
 
@@ -974,7 +974,8 @@
 
 .home-parallax__content {
     position: absolute;
-    inset: 0;
+    top: 50%;
+    left: 50%;
     z-index: 2;
 
     display: flex;
@@ -982,27 +983,46 @@
     align-items: center;
     justify-content: center;
 
-    padding: 40px;
+    width: min(calc(100% - 64px), 980px);
+
+    padding: clamp(22px, 3vw, 34px) clamp(28px, 5vw, 58px);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 28px;
+
+    background: rgba(16, 25, 54, 0.58);
+    box-shadow: 0 24px 70px rgba(7, 12, 28, 0.24);
+
+    backdrop-filter: blur(14px);
 
     text-align: center;
+
+    transform: translate(-50%, -50%);
 }
 
 .home-parallax__content h2 {
-    max-width: 800px;
+    max-width: 900px;
+
+    font-size: clamp(32px, 3.5vw, 52px);
+    line-height: 1.04;
+    letter-spacing: 0;
 
     color: var(--color-white);
 }
 
 .home-parallax__content p {
-    max-width: 590px;
+    max-width: 760px;
 
-    margin-top: 20px;
+    margin-top: 16px;
+
+    font-size: clamp(16px, 1.2vw, 18px);
+    line-height: 1.55;
 
     color: rgba(255, 255, 255, 0.72);
 }
 
 .home-parallax__content .btn {
-    margin-top: 28px;
+    margin-top: 22px;
 }
 
 
@@ -2223,14 +2243,43 @@
 
 
 
+    .home-parallax {
+        padding-block: 28px;
+    }
+
     .home-parallax__frame {
-        min-height: 430px;
+        min-height: 310px;
 
         border-radius: 26px;
     }
 
     .home-parallax__content {
-        padding: 25px;
+        width: calc(100% - 24px);
+
+        padding: 18px 16px;
+
+        border-radius: 22px;
+    }
+
+    .home-parallax__content .section-label {
+        margin-bottom: 10px;
+    }
+
+    .home-parallax__content h2 {
+        font-size: 28px;
+    }
+
+    .home-parallax__content p {
+        margin-top: 10px;
+
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .home-parallax__content .btn {
+        min-height: 44px;
+        margin-top: 16px;
+        padding: 11px 18px;
     }
 
     .home-cases__filters {
