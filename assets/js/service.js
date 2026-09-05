@@ -778,7 +778,7 @@
 
                             loopAdditionalSlides:
                                 useLoop
-                                    ? 2
+                                    ? 0
                                     : 0,
 
                             speed:
@@ -928,7 +928,7 @@
                         {
                             loop: true,
 
-                            loopAdditionalSlides: 2,
+                            loopAdditionalSlides: 0,
 
                             speed:
                                 prefersReducedMotion
