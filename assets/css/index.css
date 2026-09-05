@@ -890,7 +890,7 @@
     position: relative;
     z-index: 2;
 
-    width: min(88%, 620px);
+    width: min(96%, 780px);
     max-height: 470px;
 
     object-fit: contain;
