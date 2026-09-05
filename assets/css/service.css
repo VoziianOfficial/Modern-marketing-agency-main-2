@@ -686,6 +686,7 @@
     display: grid;
     grid-template-columns:
         repeat(4, minmax(0, 1fr));
+    align-items: stretch;
 
     gap: 14px;
 }
@@ -693,19 +694,27 @@
 .capability-card {
     position: relative;
 
+    --capability-accent: rgba(242, 123, 57, 0.52);
+    --capability-accent-soft: rgba(242, 123, 57, 0.11);
+
     display: flex;
     flex-direction: column;
 
-    min-height: 300px;
+    height: 100%;
+    min-height: 242px;
 
-    padding: 24px;
+    padding: 22px;
 
     background: var(--color-off-white);
 
-    border: 1px solid transparent;
+    border: 1px solid var(--capability-accent);
     border-radius: 23px;
 
     overflow: hidden;
+
+    box-shadow:
+        inset 0 0 0 1px var(--capability-accent-soft),
+        0 12px 28px rgba(16, 25, 54, 0.04);
 
     transition:
         transform var(--transition-base),
@@ -714,27 +723,51 @@
         box-shadow var(--transition-base);
 }
 
+.capability-card:nth-child(2n) {
+    --capability-accent: rgba(181, 154, 248, 0.58);
+    --capability-accent-soft: rgba(181, 154, 248, 0.13);
+}
+
+.capability-card:nth-child(3n) {
+    --capability-accent: rgba(49, 210, 184, 0.5);
+    --capability-accent-soft: rgba(49, 210, 184, 0.12);
+}
+
+.capability-card:nth-child(4n) {
+    --capability-accent: rgba(16, 25, 54, 0.24);
+    --capability-accent-soft: rgba(16, 25, 54, 0.07);
+}
+
 .capability-card:hover {
     transform: translateY(-7px);
 
     background: var(--color-white);
-    border-color: rgba(181, 154, 248, 0.4);
+    border-color: var(--capability-accent);
 
     box-shadow:
+        inset 0 0 0 1px var(--capability-accent-soft),
         0 20px 50px rgba(16, 25, 54, 0.08);
 }
 
 .capability-card__icon {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
     display: grid;
     place-items: center;
 
-    width: 50px;
-    height: 50px;
+    width: 42px;
+    height: 42px;
 
     color: var(--color-carrot);
     background: var(--color-white);
 
-    border-radius: 16px;
+    border: 1px solid var(--capability-accent);
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 20px rgba(16, 25, 54, 0.06);
 
     transition:
         color var(--transition-base),
@@ -750,23 +783,26 @@
 }
 
 .capability-card__icon svg {
-    width: 22px;
-    height: 22px;
+    width: 19px;
+    height: 19px;
 
     stroke-width: 1.8;
 }
 
 .capability-card h3 {
-    margin-top: 38px;
+    max-width: calc(100% - 58px);
 
-    font-size: 22px;
+    margin-top: 0;
+
+    font-size: 20px;
+    line-height: 1.12;
 }
 
 .capability-card p {
     margin-top: 10px;
 
     font-size: 13px;
-    line-height: 1.58;
+    line-height: 1.5;
 }
 
 .capability-card__meta {
@@ -775,7 +811,7 @@
     gap: 7px;
 
     margin-top: auto;
-    padding-top: 22px;
+    padding-top: 16px;
 }
 
 .capability-card__meta span {
@@ -1008,6 +1044,9 @@
 
 .service-results__header h2 {
     max-width: 760px;
+
+    font-size: clamp(34px, 3.2vw, 52px);
+    white-space: nowrap;
 }
 
 .service-results__controls {
@@ -1066,9 +1105,16 @@
 
 .service-results-swiper {
     overflow: hidden;
+
+    margin-top: -10px;
+    margin-bottom: -34px;
+    padding-top: 10px;
+    padding-bottom: 34px;
 }
 
 .service-result-card {
+    position: relative;
+
     display: flex;
     flex-direction: column;
 
@@ -1078,8 +1124,12 @@
 
     background: var(--color-white);
 
-    border: 1px solid var(--color-border);
+    border: 1px solid rgba(16, 25, 54, 0.16);
     border-radius: 24px;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(181, 154, 248, 0.18),
+        0 12px 30px rgba(16, 25, 54, 0.05);
 
     transition:
         transform var(--transition-base),
@@ -1087,13 +1137,36 @@
         border-color var(--transition-base);
 }
 
+.service-result-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 8px;
+
+    border: 1px solid rgba(242, 123, 57, 0.16);
+    border-radius: 18px;
+
+    pointer-events: none;
+
+    transition:
+        border-color var(--transition-base),
+        inset var(--transition-base);
+}
+
 .service-result-card:hover {
     transform: translateY(-6px);
 
-    border-color: rgba(181, 154, 248, 0.42);
+    border-color: rgba(181, 154, 248, 0.54);
 
     box-shadow:
+        inset 0 0 0 1px rgba(181, 154, 248, 0.24),
         0 20px 50px rgba(16, 25, 54, 0.08);
+}
+
+.service-result-card:hover::before {
+    inset: 7px;
+
+    border-color: rgba(242, 123, 57, 0.3);
 }
 
 .service-result-card__top {
@@ -1163,6 +1236,8 @@
 
 
 .service-data {
+    --section-space: clamp(42px, 4.2vw, 68px);
+
     background: var(--color-navy);
 }
 
@@ -1174,7 +1249,7 @@
 
     align-items: center;
 
-    gap: clamp(50px, 7vw, 100px);
+    gap: clamp(28px, 4.8vw, 64px);
 }
 
 .service-data__content {
@@ -1189,16 +1264,18 @@
 }
 
 .service-data__content > p {
-    margin-top: 20px;
+    margin-top: 14px;
 
     color: rgba(255, 255, 255, 0.62);
 }
 
 .service-data__list {
     display: grid;
-    gap: 9px;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 7px;
 
-    margin-top: 26px;
+    margin-top: 18px;
 }
 
 .service-data__item {
@@ -1206,9 +1283,9 @@
     align-items: center;
     gap: 12px;
 
-    min-height: 52px;
+    min-height: 44px;
 
-    padding: 10px 12px;
+    padding: 8px 11px;
 
     background: rgba(255, 255, 255, 0.05);
 
@@ -1234,10 +1311,10 @@
     display: grid;
     place-items: center;
 
-    width: 31px;
-    height: 31px;
+    width: 28px;
+    height: 28px;
 
-    flex: 0 0 31px;
+    flex: 0 0 28px;
 
     color: var(--color-navy);
     background: var(--color-lilac);
@@ -1246,8 +1323,8 @@
 }
 
 .service-data__item-icon svg {
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
 }
 
 .service-data__item span:last-child {
@@ -1264,7 +1341,7 @@
     display: grid;
     place-items: center;
 
-    min-height: 500px;
+    min-height: 380px;
 }
 
 .service-data__visual img,
@@ -1274,8 +1351,8 @@
     position: relative;
     z-index: 2;
 
-    width: min(95%, 680px);
-    max-height: 500px;
+    width: min(88%, 560px);
+    max-height: 380px;
 
     object-fit: contain;
 }
@@ -1291,11 +1368,11 @@
 }
 
 .service-data__orb--one {
-    top: 11%;
+    top: 13%;
     right: 6%;
 
-    width: 66px;
-    height: 66px;
+    width: 48px;
+    height: 48px;
 
     background: var(--color-carrot);
 
@@ -1306,8 +1383,8 @@
     left: 5%;
     bottom: 8%;
 
-    width: 98px;
-    height: 98px;
+    width: 72px;
+    height: 72px;
 
     background: var(--color-lilac);
 
@@ -1610,7 +1687,7 @@
     }
 
     .capability-card {
-        min-height: 270px;
+        min-height: 230px;
     }
 
 
@@ -1703,7 +1780,7 @@
     }
 
     .service-data__visual {
-        min-height: 430px;
+        min-height: 340px;
 
         order: -1;
     }
@@ -1880,7 +1957,7 @@
     }
 
     .capability-card {
-        min-height: 245px;
+        min-height: 218px;
     }
 
     .service-marquee {
@@ -1933,6 +2010,10 @@
         text-align: center;
     }
 
+    .service-results__header h2 {
+        white-space: normal;
+    }
+
     .service-results__controls {
         justify-content: center;
     }
@@ -1942,11 +2023,11 @@
     }
 
     .service-data__grid {
-        gap: 36px;
+        gap: 26px;
     }
 
     .service-data__visual {
-        min-height: 340px;
+        min-height: 280px;
     }
 
     .service-data__content {
@@ -1962,6 +2043,8 @@
     }
 
     .service-data__item {
+        min-height: 42px;
+
         text-align: left;
     }
 
@@ -2076,6 +2159,8 @@
     }
 
     .capability-card {
+        min-height: 210px;
+
         padding: 21px;
     }
 
@@ -2084,7 +2169,36 @@
     }
 
     .service-data__visual {
-        min-height: 300px;
+        min-height: 250px;
+    }
+
+    .service-data__list {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 6px;
+    }
+
+    .service-data__item {
+        gap: 7px;
+
+        min-height: 40px;
+
+        padding: 7px 8px;
+    }
+
+    .service-data__item-icon {
+        width: 25px;
+        height: 25px;
+
+        flex-basis: 25px;
+
+        border-radius: 8px;
+    }
+
+    .service-data__item span:last-child {
+        font-size: 11px;
+        line-height: 1.2;
     }
 
     .service-cta__card {
