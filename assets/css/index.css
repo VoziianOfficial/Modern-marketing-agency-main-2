@@ -1280,36 +1280,6 @@
     box-shadow: var(--shadow-soft);
 }
 
-.home-highlights__dot {
-    position: absolute;
-
-    border-radius: 50%;
-
-    animation:
-        highlightsDotFloat
-        5s
-        ease-in-out
-        infinite alternate;
-}
-
-.home-highlights__dot--two {
-    bottom: 14%;
-    left: -3px;
-
-    width: 7px;
-    height: 7px;
-
-    background: var(--color-lilac);
-
-    animation-delay: 1.2s;
-}
-
-@keyframes highlightsDotFloat {
-    to {
-        transform: translateY(-10px);
-    }
-}
-
 .home-highlights__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1327,20 +1297,35 @@
 
     text-align: center;
 
+    background: var(--color-white);
+
+    border:
+        1px
+        solid
+        rgba(39, 34, 82, 0.12);
     border-radius: var(--radius-lg);
+
+    box-shadow:
+        0 18px 38px rgba(18, 24, 52, 0.08),
+        0 2px 0 rgba(255, 255, 255, 0.9) inset,
+        0 -1px 0 rgba(39, 34, 82, 0.05) inset;
 
     transition:
         transform var(--transition-base),
-        background var(--transition-base),
+        border-color var(--transition-base),
         box-shadow var(--transition-base);
 }
 
 .home-highlights__item:hover {
     transform: translateY(-8px);
 
-    background: var(--color-white);
+    border-color: rgba(255, 107, 61, 0.32);
 
-    box-shadow: var(--shadow-card);
+    box-shadow:
+        0 26px 52px rgba(18, 24, 52, 0.14),
+        0 12px 24px rgba(255, 107, 61, 0.1),
+        0 2px 0 rgba(255, 255, 255, 0.95) inset,
+        0 -1px 0 rgba(39, 34, 82, 0.07) inset;
 }
 
 .home-highlights__blob {
@@ -2405,9 +2390,17 @@
     color: var(--color-lilac);
 }
 
-.home-contact__brand {
-    width: min(240px, 68%);
+.home-contact__brand-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
     margin-top: 34px;
+}
+
+.home-contact__brand {
+    width: min(220px, 58%);
+    flex: 0 1 220px;
 }
 
 .home-contact__brand img {
@@ -2415,6 +2408,91 @@
     width: 100%;
     height: auto;
     object-fit: contain;
+}
+
+.home-contact__service-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    flex: 0 0 auto;
+}
+
+.home-contact__service-button {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 118px;
+    min-height: 46px;
+    padding: 12px 18px;
+
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: var(--color-white);
+    background:
+        linear-gradient(135deg, #ff7b3d 0%, #ff3f7e 100%);
+
+    border:
+        1px
+        solid
+        rgba(255, 255, 255, 0.24);
+    border-radius: var(--radius-pill);
+
+    box-shadow:
+        0 14px 28px rgba(255, 107, 61, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+.home-contact__service-button::before {
+    content: "";
+
+    position: absolute;
+    inset: 3px;
+    z-index: -1;
+
+    border-radius: inherit;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.22),
+            rgba(255, 255, 255, 0)
+        );
+}
+
+.home-contact__service-button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 18px 34px rgba(255, 107, 61, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.38);
+}
+
+.home-contact__service-button--secondary {
+    color: var(--color-navy);
+    background:
+        linear-gradient(135deg, #ffffff 0%, #dfe8ff 100%);
+    box-shadow:
+        0 14px 28px rgba(132, 116, 255, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.home-contact__service-button--secondary:hover {
+    box-shadow:
+        0 18px 34px rgba(132, 116, 255, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.88);
 }
 
 .home-contact__form {
@@ -3189,10 +3267,28 @@
         margin-inline: auto;
     }
 
-    .home-contact__brand {
-        width: min(220px, 66%);
+    .home-contact__brand-row {
+        justify-content: center;
+        gap: 12px;
         margin-inline: auto;
         margin-top: 24px;
+    }
+
+    .home-contact__brand {
+        width: min(190px, 52%);
+        flex-basis: 190px;
+    }
+
+    .home-contact__service-buttons {
+        gap: 8px;
+    }
+
+    .home-contact__service-button {
+        min-width: 100px;
+        min-height: 42px;
+        padding: 10px 14px;
+
+        font-size: 11px;
     }
 
     .home-contact__form {
