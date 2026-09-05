@@ -337,24 +337,6 @@ if (
 }
 
 
-if ($businessType === '') {
-    sendJsonResponse(
-        false,
-        'Please select your business type.',
-        422
-    );
-}
-
-
-if ($helpWith === '') {
-    sendJsonResponse(
-        false,
-        'Please select what you need help with.',
-        422
-    );
-}
-
-
 if ($message === '') {
     sendJsonResponse(
         false,
@@ -423,6 +405,7 @@ if ($website !== '') {
 
 
 $allowedBusinessTypes = [
+    '',
     'Lead Generation',
     'E-commerce',
     'Local Business',
@@ -432,6 +415,7 @@ $allowedBusinessTypes = [
 ];
 
 $allowedHelpOptions = [
+    '',
     'Google Ads Management',
     'Performance Max',
     'Shopping',
@@ -558,27 +542,6 @@ $emailBody .=
         ? $website
         : 'Not provided'
     ) .
-    "\n\n";
-
-
-$emailBody .=
-    "Business Type:\n" .
-    $businessType .
-    "\n\n";
-
-
-$emailBody .=
-    "Monthly Advertising Budget:\n" .
-    ($budget !== ''
-        ? $budget
-        : 'Not provided'
-    ) .
-    "\n\n";
-
-
-$emailBody .=
-    "Help With:\n" .
-    $helpWith .
     "\n\n";
 
 
