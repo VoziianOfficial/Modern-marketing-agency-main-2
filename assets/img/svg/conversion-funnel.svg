@@ -1,0 +1,907 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 760 560"
+    width="760"
+    height="560"
+    fill="none"
+    role="img"
+    aria-labelledby="conversionFunnelTitle conversionFunnelDesc"
+>
+    <title id="conversionFunnelTitle">Conversion funnel illustration</title>
+    <desc id="conversionFunnelDesc">
+        Performance marketing conversion funnel showing advertising traffic,
+        filtering, qualified leads, CRM and business outcomes.
+    </desc>
+
+    <style>
+        .cf-float-a {
+            animation: cfFloatA 7s ease-in-out infinite alternate;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        .cf-float-b {
+            animation: cfFloatB 9s ease-in-out infinite alternate;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        .cf-pulse {
+            animation: cfPulse 4.5s ease-in-out infinite;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        .cf-flow {
+            stroke-dasharray: 7 10;
+            animation: cfFlow 12s linear infinite;
+        }
+
+        .cf-flow-reverse {
+            stroke-dasharray: 5 9;
+            animation: cfFlowReverse 15s linear infinite;
+        }
+
+        .cf-rotate {
+            animation: cfRotate 18s linear infinite;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        @keyframes cfFloatA {
+            from {
+                transform: translateY(-5px);
+            }
+
+            to {
+                transform: translateY(9px);
+            }
+        }
+
+        @keyframes cfFloatB {
+            from {
+                transform: translateY(8px);
+            }
+
+            to {
+                transform: translateY(-7px);
+            }
+        }
+
+        @keyframes cfPulse {
+            0%,
+            100% {
+                opacity: .45;
+                transform: scale(.9);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes cfFlow {
+            to {
+                stroke-dashoffset: -180;
+            }
+        }
+
+        @keyframes cfFlowReverse {
+            to {
+                stroke-dashoffset: 180;
+            }
+        }
+
+        @keyframes cfRotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cf-float-a,
+            .cf-float-b,
+            .cf-pulse,
+            .cf-flow,
+            .cf-flow-reverse,
+            .cf-rotate {
+                animation: none;
+            }
+        }
+    </style>
+
+
+    
+
+    <rect
+        x="84"
+        y="64"
+        width="592"
+        height="430"
+        rx="76"
+        fill="#F8F9FF"
+    />
+
+    <rect
+        x="107"
+        y="87"
+        width="546"
+        height="384"
+        rx="60"
+        stroke="#E7E9F2"
+        stroke-width="2"
+    />
+
+
+    
+
+    <g class="cf-float-a">
+
+        <rect
+            x="116"
+            y="100"
+            width="132"
+            height="82"
+            rx="22"
+            fill="#FFFFFF"
+            stroke="#E7E9F2"
+            stroke-width="2"
+        />
+
+        <rect
+            x="136"
+            y="121"
+            width="38"
+            height="38"
+            rx="12"
+            fill="#FFF0EA"
+        />
+
+        <path
+            d="M146 147L154 136L163 143"
+            stroke="#FF6B3D"
+            stroke-width="3.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+
+        <circle
+            cx="163"
+            cy="143"
+            r="3.5"
+            fill="#FF6B3D"
+        />
+
+        <rect
+            x="187"
+            y="125"
+            width="40"
+            height="7"
+            rx="3.5"
+            fill="#101936"
+        />
+
+        <rect
+            x="187"
+            y="140"
+            width="27"
+            height="5"
+            rx="2.5"
+            fill="#CDD1DF"
+        />
+
+        <rect
+            x="187"
+            y="151"
+            width="34"
+            height="5"
+            rx="2.5"
+            fill="#CDD1DF"
+        />
+    </g>
+
+
+    <g class="cf-float-b">
+
+        <rect
+            x="314"
+            y="87"
+            width="132"
+            height="82"
+            rx="22"
+            fill="#101936"
+        />
+
+        <circle
+            cx="350"
+            cy="128"
+            r="19"
+            fill="#B59AF8"
+        />
+
+        <path
+            d="M342 128H358"
+            stroke="#FFFFFF"
+            stroke-width="3"
+            stroke-linecap="round"
+        />
+
+        <path
+            d="M350 120V136"
+            stroke="#FFFFFF"
+            stroke-width="3"
+            stroke-linecap="round"
+        />
+
+        <rect
+            x="383"
+            y="113"
+            width="42"
+            height="7"
+            rx="3.5"
+            fill="#FFFFFF"
+            opacity=".9"
+        />
+
+        <rect
+            x="383"
+            y="128"
+            width="29"
+            height="5"
+            rx="2.5"
+            fill="#FFFFFF"
+            opacity=".28"
+        />
+
+        <rect
+            x="383"
+            y="140"
+            width="34"
+            height="5"
+            rx="2.5"
+            fill="#FFFFFF"
+            opacity=".28"
+        />
+    </g>
+
+
+    <g class="cf-float-a">
+
+        <rect
+            x="512"
+            y="100"
+            width="132"
+            height="82"
+            rx="22"
+            fill="#FFFFFF"
+            stroke="#E7E9F2"
+            stroke-width="2"
+        />
+
+        <rect
+            x="532"
+            y="121"
+            width="38"
+            height="38"
+            rx="12"
+            fill="#F1EDFF"
+        />
+
+        <circle
+            cx="551"
+            cy="140"
+            r="9"
+            stroke="#B59AF8"
+            stroke-width="3"
+        />
+
+        <path
+            d="M557 146L564 153"
+            stroke="#B59AF8"
+            stroke-width="3"
+            stroke-linecap="round"
+        />
+
+        <rect
+            x="584"
+            y="125"
+            width="40"
+            height="7"
+            rx="3.5"
+            fill="#101936"
+        />
+
+        <rect
+            x="584"
+            y="140"
+            width="28"
+            height="5"
+            rx="2.5"
+            fill="#CDD1DF"
+        />
+
+        <rect
+            x="584"
+            y="151"
+            width="34"
+            height="5"
+            rx="2.5"
+            fill="#CDD1DF"
+        />
+    </g>
+
+
+    
+
+    <path
+        d="M181 182C200 211 232 224 271 233"
+        stroke="#FF6B3D"
+        stroke-width="2"
+        stroke-linecap="round"
+        opacity=".55"
+        class="cf-flow"
+    />
+
+    <path
+        d="M380 170V223"
+        stroke="#B59AF8"
+        stroke-width="2"
+        stroke-linecap="round"
+        opacity=".55"
+        class="cf-flow-reverse"
+    />
+
+    <path
+        d="M578 182C560 211 528 224 489 233"
+        stroke="#FF6B3D"
+        stroke-width="2"
+        stroke-linecap="round"
+        opacity=".55"
+        class="cf-flow"
+    />
+
+
+    
+
+    <g class="cf-float-b">
+
+        <path
+            d="M267 223H493L447 292H313L267 223Z"
+            fill="#101936"
+        />
+
+        <path
+            d="M313 292H447L418 344H342L313 292Z"
+            fill="#B59AF8"
+        />
+
+        <path
+            d="M342 344H418L397 389H363L342 344Z"
+            fill="#FF6B3D"
+        />
+
+        <rect
+            x="365"
+            y="389"
+            width="30"
+            height="44"
+            rx="10"
+            fill="#101936"
+        />
+
+        <path
+            d="M294 247H466"
+            stroke="#FFFFFF"
+            stroke-opacity=".16"
+            stroke-width="2"
+        />
+
+        <path
+            d="M329 315H431"
+            stroke="#FFFFFF"
+            stroke-opacity=".28"
+            stroke-width="2"
+        />
+
+        <path
+            d="M357 365H403"
+            stroke="#FFFFFF"
+            stroke-opacity=".55"
+            stroke-width="2"
+        />
+    </g>
+
+
+    
+
+    <circle
+        cx="320"
+        cy="250"
+        r="8"
+        fill="#FF6B3D"
+    />
+
+    <circle
+        cx="350"
+        cy="251"
+        r="6"
+        fill="#B59AF8"
+    />
+
+    <circle
+        cx="382"
+        cy="250"
+        r="7"
+        fill="#FFFFFF"
+    />
+
+    <circle
+        cx="414"
+        cy="250"
+        r="6"
+        fill="#B59AF8"
+    />
+
+    <circle
+        cx="444"
+        cy="250"
+        r="8"
+        fill="#FF6B3D"
+    />
+
+
+    <circle
+        cx="347"
+        cy="315"
+        r="6"
+        fill="#FFFFFF"
+    />
+
+    <circle
+        cx="380"
+        cy="316"
+        r="8"
+        fill="#101936"
+    />
+
+    <circle
+        cx="413"
+        cy="315"
+        r="6"
+        fill="#FFFFFF"
+    />
+
+
+    <circle
+        cx="366"
+        cy="365"
+        r="5"
+        fill="#FFFFFF"
+    />
+
+    <circle
+        cx="394"
+        cy="365"
+        r="5"
+        fill="#FFFFFF"
+    />
+
+
+    
+
+    <g class="cf-float-a">
+
+        <rect
+            x="68"
+            y="270"
+            width="172"
+            height="126"
+            rx="26"
+            fill="#FFFFFF"
+            stroke="#E7E9F2"
+            stroke-width="2"
+        />
+
+        <rect
+            x="91"
+            y="294"
+            width="42"
+            height="42"
+            rx="14"
+            fill="#F1EDFF"
+        />
+
+        <path
+            d="M103 314L110 321L122 307"
+            stroke="#B59AF8"
+            stroke-width="3.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+
+        <rect
+            x="148"
+            y="297"
+            width="65"
+            height="8"
+            rx="4"
+            fill="#101936"
+        />
+
+        <rect
+            x="148"
+            y="314"
+            width="44"
+            height="6"
+            rx="3"
+            fill="#CDD1DF"
+        />
+
+        <circle
+            cx="101"
+            cy="365"
+            r="5"
+            fill="#FF6B3D"
+        />
+
+        <rect
+            x="114"
+            y="361"
+            width="82"
+            height="8"
+            rx="4"
+            fill="#E7E9F2"
+        />
+
+        <rect
+            x="114"
+            y="361"
+            width="55"
+            height="8"
+            rx="4"
+            fill="#FF6B3D"
+        />
+    </g>
+
+
+    
+
+    <g class="cf-float-b">
+
+        <rect
+            x="520"
+            y="270"
+            width="174"
+            height="126"
+            rx="26"
+            fill="#101936"
+        />
+
+        <circle
+            cx="554"
+            cy="308"
+            r="18"
+            fill="#FF6B3D"
+        />
+
+        <circle
+            cx="554"
+            cy="303"
+            r="6"
+            fill="#FFFFFF"
+        />
+
+        <path
+            d="M545 319C547 313 551 311 554 311C558 311 562 313 564 319"
+            stroke="#FFFFFF"
+            stroke-width="2.5"
+            stroke-linecap="round"
+        />
+
+        <rect
+            x="583"
+            y="297"
+            width="82"
+            height="8"
+            rx="4"
+            fill="#FFFFFF"
+            opacity=".9"
+        />
+
+        <rect
+            x="583"
+            y="314"
+            width="57"
+            height="6"
+            rx="3"
+            fill="#FFFFFF"
+            opacity=".3"
+        />
+
+        <path
+            d="M548 365H666"
+            stroke="#FFFFFF"
+            stroke-opacity=".14"
+            stroke-width="2"
+        />
+
+        <circle
+            cx="558"
+            cy="365"
+            r="5"
+            fill="#B59AF8"
+        />
+
+        <circle
+            cx="591"
+            cy="365"
+            r="5"
+            fill="#FF6B3D"
+        />
+
+        <circle
+            cx="624"
+            cy="365"
+            r="5"
+            fill="#FFFFFF"
+            opacity=".7"
+        />
+
+        <circle
+            cx="657"
+            cy="365"
+            r="5"
+            fill="#B59AF8"
+        />
+    </g>
+
+
+    
+
+    <path
+        d="M238 331C265 323 288 309 314 288"
+        stroke="#B59AF8"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="6 9"
+        opacity=".5"
+    />
+
+    <path
+        d="M520 331C491 324 468 310 446 289"
+        stroke="#FF6B3D"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="6 9"
+        opacity=".5"
+    />
+
+
+    
+
+    <g class="cf-float-a">
+
+        <rect
+            x="292"
+            y="432"
+            width="176"
+            height="86"
+            rx="26"
+            fill="#FFFFFF"
+            stroke="#E7E9F2"
+            stroke-width="2"
+        />
+
+        <rect
+            x="313"
+            y="453"
+            width="44"
+            height="44"
+            rx="14"
+            fill="#FFF0EA"
+        />
+
+        <path
+            d="M324 483L332 473L338 478L347 466"
+            stroke="#FF6B3D"
+            stroke-width="3.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+
+        <circle
+            cx="347"
+            cy="466"
+            r="3.5"
+            fill="#FF6B3D"
+        />
+
+        <rect
+            x="373"
+            y="457"
+            width="72"
+            height="9"
+            rx="4.5"
+            fill="#101936"
+        />
+
+        <rect
+            x="373"
+            y="475"
+            width="52"
+            height="6"
+            rx="3"
+            fill="#CDD1DF"
+        />
+
+        <rect
+            x="373"
+            y="488"
+            width="38"
+            height="6"
+            rx="3"
+            fill="#B59AF8"
+        />
+    </g>
+
+
+    
+
+    <path
+        d="M380 433V446"
+        stroke="#FF6B3D"
+        stroke-width="3"
+        stroke-linecap="round"
+        class="cf-flow"
+    />
+
+
+    
+
+    <g
+        class="cf-rotate"
+        opacity=".38"
+    >
+        <ellipse
+            cx="380"
+            cy="280"
+            rx="303"
+            ry="214"
+            stroke="#B59AF8"
+            stroke-width="1.5"
+            stroke-dasharray="4 12"
+        />
+
+        <circle
+            cx="676"
+            cy="237"
+            r="6"
+            fill="#FF6B3D"
+        />
+
+        <circle
+            cx="116"
+            cy="415"
+            r="5"
+            fill="#B59AF8"
+        />
+    </g>
+
+
+    
+
+    <g class="cf-pulse">
+        <circle
+            cx="267"
+            cy="93"
+            r="6"
+            fill="#FF6B3D"
+        />
+
+        <circle
+            cx="267"
+            cy="93"
+            r="13"
+            stroke="#FF6B3D"
+            stroke-opacity=".18"
+        />
+    </g>
+
+    <g class="cf-pulse">
+        <circle
+            cx="699"
+            cy="315"
+            r="5"
+            fill="#B59AF8"
+        />
+
+        <circle
+            cx="699"
+            cy="315"
+            r="12"
+            stroke="#B59AF8"
+            stroke-opacity=".18"
+        />
+    </g>
+
+    <rect
+        x="82"
+        y="212"
+        width="11"
+        height="11"
+        rx="3"
+        stroke="#B59AF8"
+        stroke-width="2"
+        opacity=".5"
+        transform="rotate(18 87.5 217.5)"
+    />
+
+    <rect
+        x="645"
+        y="420"
+        width="12"
+        height="12"
+        rx="3"
+        stroke="#FF6B3D"
+        stroke-width="2"
+        opacity=".48"
+        transform="rotate(-17 651 426)"
+    />
+
+    <circle
+        cx="69"
+        cy="436"
+        r="4"
+        fill="#FF6B3D"
+        opacity=".65"
+    />
+
+    <circle
+        cx="703"
+        cy="190"
+        r="4"
+        fill="#101936"
+        opacity=".24"
+    />
+
+    <circle
+        cx="242"
+        cy="474"
+        r="4"
+        fill="#B59AF8"
+        opacity=".65"
+    />
+
+
+    
+
+    <path
+        d="M495 465H556"
+        stroke="#E7E9F2"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <circle
+        cx="507"
+        cy="465"
+        r="4"
+        fill="#B59AF8"
+    />
+
+    <circle
+        cx="526"
+        cy="465"
+        r="4"
+        fill="#FF6B3D"
+    />
+
+    <circle
+        cx="545"
+        cy="465"
+        r="4"
+        fill="#101936"
+        opacity=".55"
+    />
+</svg>

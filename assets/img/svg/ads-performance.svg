@@ -1,0 +1,691 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 760 560"
+    width="760"
+    height="560"
+    fill="none"
+    role="img"
+    aria-labelledby="adsPerformanceTitle adsPerformanceDesc"
+>
+    <title id="adsPerformanceTitle">Advertising performance illustration</title>
+    <desc id="adsPerformanceDesc">
+        Abstract performance marketing data system with campaign metrics,
+        conversion nodes and analytics signals.
+    </desc>
+
+    <style>
+        .np-float-a {
+            animation: npFloatA 7s ease-in-out infinite alternate;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        .np-float-b {
+            animation: npFloatB 9s ease-in-out infinite alternate;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        .np-pulse {
+            animation: npPulse 4.8s ease-in-out infinite;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+
+        .np-dash {
+            stroke-dasharray: 8 11;
+            animation: npDash 14s linear infinite;
+        }
+
+        .np-dash-reverse {
+            stroke-dasharray: 6 10;
+            animation: npDashReverse 17s linear infinite;
+        }
+
+        @keyframes npFloatA {
+            from {
+                transform: translateY(-4px);
+            }
+
+            to {
+                transform: translateY(9px);
+            }
+        }
+
+        @keyframes npFloatB {
+            from {
+                transform: translateY(7px);
+            }
+
+            to {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes npPulse {
+            0%,
+            100% {
+                opacity: .42;
+                transform: scale(.9);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes npDash {
+            to {
+                stroke-dashoffset: -190;
+            }
+        }
+
+        @keyframes npDashReverse {
+            to {
+                stroke-dashoffset: 190;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .np-float-a,
+            .np-float-b,
+            .np-pulse,
+            .np-dash,
+            .np-dash-reverse {
+                animation: none;
+            }
+        }
+    </style>
+
+
+    
+
+    <rect
+        x="118"
+        y="76"
+        width="524"
+        height="398"
+        rx="72"
+        fill="#F8F9FF"
+    />
+
+    <rect
+        x="138"
+        y="96"
+        width="484"
+        height="358"
+        rx="58"
+        stroke="#E7E9F2"
+        stroke-width="2"
+    />
+
+
+    
+
+    <ellipse
+        cx="380"
+        cy="280"
+        rx="284"
+        ry="192"
+        stroke="#B59AF8"
+        stroke-width="1.5"
+        opacity=".28"
+        class="np-dash"
+    />
+
+    <ellipse
+        cx="380"
+        cy="280"
+        rx="232"
+        ry="150"
+        stroke="#FF6B3D"
+        stroke-width="1.5"
+        opacity=".2"
+        class="np-dash-reverse"
+    />
+
+
+    
+
+    <g class="np-float-a">
+        <circle
+            cx="380"
+            cy="280"
+            r="104"
+            fill="#101936"
+        />
+
+        <circle
+            cx="380"
+            cy="280"
+            r="82"
+            stroke="#FFFFFF"
+            stroke-opacity=".1"
+            stroke-width="1.5"
+        />
+
+        <circle
+            cx="380"
+            cy="280"
+            r="58"
+            fill="#151F45"
+        />
+
+        <path
+            d="M344 306L365 279L386 289L419 245"
+            stroke="#FF6B3D"
+            stroke-width="7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+
+        <circle
+            cx="344"
+            cy="306"
+            r="6"
+            fill="#B59AF8"
+        />
+
+        <circle
+            cx="365"
+            cy="279"
+            r="6"
+            fill="#FFFFFF"
+        />
+
+        <circle
+            cx="386"
+            cy="289"
+            r="6"
+            fill="#B59AF8"
+        />
+
+        <circle
+            cx="419"
+            cy="245"
+            r="8"
+            fill="#FF6B3D"
+        />
+
+        <path
+            d="M407 245H419V257"
+            stroke="#FF6B3D"
+            stroke-width="6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+    </g>
+
+
+    
+
+    <g class="np-float-b">
+        <rect
+            x="70"
+            y="118"
+            width="168"
+            height="112"
+            rx="25"
+            fill="#FFFFFF"
+            stroke="#E7E9F2"
+            stroke-width="2"
+        />
+
+        <rect
+            x="92"
+            y="142"
+            width="34"
+            height="34"
+            rx="11"
+            fill="#FFF0EA"
+        />
+
+        <path
+            d="M101 165V155M109 165V150M117 165V145"
+            stroke="#FF6B3D"
+            stroke-width="3"
+            stroke-linecap="round"
+        />
+
+        <rect
+            x="140"
+            y="144"
+            width="66"
+            height="8"
+            rx="4"
+            fill="#101936"
+            opacity=".9"
+        />
+
+        <rect
+            x="140"
+            y="160"
+            width="46"
+            height="6"
+            rx="3"
+            fill="#C9CEDC"
+        />
+
+        <rect
+            x="92"
+            y="191"
+            width="114"
+            height="8"
+            rx="4"
+            fill="#E7E9F2"
+        />
+
+        <rect
+            x="92"
+            y="191"
+            width="78"
+            height="8"
+            rx="4"
+            fill="#B59AF8"
+        />
+    </g>
+
+
+    
+
+    <g class="np-float-a">
+        <rect
+            x="521"
+            y="112"
+            width="170"
+            height="122"
+            rx="25"
+            fill="#101936"
+        />
+
+        <circle
+            cx="553"
+            cy="146"
+            r="16"
+            fill="#FF6B3D"
+        />
+
+        <path
+            d="M547 147L551 151L560 141"
+            stroke="#FFFFFF"
+            stroke-width="2.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+
+        <rect
+            x="579"
+            y="138"
+            width="82"
+            height="8"
+            rx="4"
+            fill="#FFFFFF"
+            opacity=".88"
+        />
+
+        <rect
+            x="579"
+            y="155"
+            width="55"
+            height="6"
+            rx="3"
+            fill="#FFFFFF"
+            opacity=".28"
+        />
+
+        <path
+            d="M548 198C564 178 580 206 596 184C612 162 626 194 653 171"
+            stroke="#B59AF8"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+
+        <circle
+            cx="653"
+            cy="171"
+            r="5"
+            fill="#FF6B3D"
+        />
+    </g>
+
+
+    
+
+    <g class="np-float-a">
+        <rect
+            x="76"
+            y="342"
+            width="188"
+            height="128"
+            rx="28"
+            fill="#FFFFFF"
+            stroke="#E7E9F2"
+            stroke-width="2"
+        />
+
+        <circle
+            cx="112"
+            cy="380"
+            r="18"
+            fill="#F1EDFF"
+        />
+
+        <circle
+            cx="112"
+            cy="380"
+            r="8"
+            fill="#B59AF8"
+        />
+
+        <rect
+            x="143"
+            y="370"
+            width="88"
+            height="9"
+            rx="4.5"
+            fill="#101936"
+        />
+
+        <rect
+            x="143"
+            y="388"
+            width="58"
+            height="6"
+            rx="3"
+            fill="#C9CEDC"
+        />
+
+        <path
+            d="M103 429H128"
+            stroke="#FF6B3D"
+            stroke-width="6"
+            stroke-linecap="round"
+        />
+
+        <path
+            d="M139 429H169"
+            stroke="#B59AF8"
+            stroke-width="6"
+            stroke-linecap="round"
+        />
+
+        <path
+            d="M180 429H229"
+            stroke="#101936"
+            stroke-width="6"
+            stroke-linecap="round"
+            opacity=".15"
+        />
+    </g>
+
+
+    
+
+    <g class="np-float-b">
+        <rect
+            x="506"
+            y="348"
+            width="184"
+            height="128"
+            rx="28"
+            fill="#FFFFFF"
+            stroke="#E7E9F2"
+            stroke-width="2"
+        />
+
+        <rect
+            x="532"
+            y="373"
+            width="46"
+            height="46"
+            rx="15"
+            fill="#FFF0EA"
+        />
+
+        <path
+            d="M545 404L554 393L561 398L569 386"
+            stroke="#FF6B3D"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        />
+
+        <rect
+            x="594"
+            y="378"
+            width="68"
+            height="10"
+            rx="5"
+            fill="#101936"
+        />
+
+        <rect
+            x="594"
+            y="397"
+            width="46"
+            height="6"
+            rx="3"
+            fill="#C9CEDC"
+        />
+
+        <circle
+            cx="543"
+            cy="448"
+            r="5"
+            fill="#B59AF8"
+        />
+
+        <rect
+            x="558"
+            y="444"
+            width="48"
+            height="8"
+            rx="4"
+            fill="#E7E9F2"
+        />
+
+        <circle
+            cx="621"
+            cy="448"
+            r="5"
+            fill="#FF6B3D"
+        />
+
+        <rect
+            x="636"
+            y="444"
+            width="28"
+            height="8"
+            rx="4"
+            fill="#E7E9F2"
+        />
+    </g>
+
+
+    
+
+    <path
+        d="M236 185C292 187 314 213 327 238"
+        stroke="#B59AF8"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="5 8"
+        opacity=".55"
+    />
+
+    <path
+        d="M524 194C478 204 454 218 438 242"
+        stroke="#FF6B3D"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="5 8"
+        opacity=".48"
+    />
+
+    <path
+        d="M262 392C302 374 320 354 334 330"
+        stroke="#FF6B3D"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="5 8"
+        opacity=".46"
+    />
+
+    <path
+        d="M509 398C475 375 452 351 438 325"
+        stroke="#B59AF8"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="5 8"
+        opacity=".5"
+    />
+
+
+    
+
+    <g class="np-pulse">
+        <circle
+            cx="292"
+            cy="102"
+            r="7"
+            fill="#FF6B3D"
+        />
+
+        <circle
+            cx="292"
+            cy="102"
+            r="14"
+            stroke="#FF6B3D"
+            stroke-opacity=".18"
+        />
+    </g>
+
+    <g class="np-pulse">
+        <circle
+            cx="681"
+            cy="291"
+            r="6"
+            fill="#B59AF8"
+        />
+
+        <circle
+            cx="681"
+            cy="291"
+            r="13"
+            stroke="#B59AF8"
+            stroke-opacity=".2"
+        />
+    </g>
+
+    <g class="np-pulse">
+        <circle
+            cx="91"
+            cy="286"
+            r="5"
+            fill="#FF6B3D"
+        />
+
+        <circle
+            cx="91"
+            cy="286"
+            r="12"
+            stroke="#FF6B3D"
+            stroke-opacity=".16"
+        />
+    </g>
+
+
+    
+
+    <rect
+        x="251"
+        y="72"
+        width="12"
+        height="12"
+        rx="3"
+        stroke="#B59AF8"
+        stroke-width="2"
+        opacity=".55"
+        transform="rotate(17 257 78)"
+    />
+
+    <rect
+        x="666"
+        y="250"
+        width="9"
+        height="9"
+        rx="2"
+        fill="#FF6B3D"
+        opacity=".55"
+        transform="rotate(23 670.5 254.5)"
+    />
+
+    <rect
+        x="300"
+        y="478"
+        width="13"
+        height="13"
+        rx="3"
+        stroke="#FF6B3D"
+        stroke-width="2"
+        opacity=".45"
+        transform="rotate(-16 306.5 484.5)"
+    />
+
+    <circle
+        cx="469"
+        cy="79"
+        r="4"
+        fill="#B59AF8"
+        opacity=".7"
+    />
+
+    <circle
+        cx="716"
+        cy="335"
+        r="3"
+        fill="#101936"
+        opacity=".35"
+    />
+
+    <circle
+        cx="53"
+        cy="323"
+        r="3"
+        fill="#B59AF8"
+        opacity=".65"
+    />
+
+
+    
+
+    <path
+        d="M326 501H435"
+        stroke="#E7E9F2"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <circle
+        cx="345"
+        cy="501"
+        r="5"
+        fill="#FF6B3D"
+    />
+
+    <circle
+        cx="381"
+        cy="501"
+        r="5"
+        fill="#B59AF8"
+    />
+
+    <circle
+        cx="417"
+        cy="501"
+        r="5"
+        fill="#101936"
+    />
+</svg>
