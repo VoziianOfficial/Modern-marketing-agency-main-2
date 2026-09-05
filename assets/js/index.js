@@ -1084,87 +1084,6 @@
 
     
 
-    const initCardDepth = () => {
-        if (
-            prefersReducedMotion ||
-            !window.matchMedia(
-                "(hover: hover) and (pointer: fine)"
-            ).matches
-        ) {
-            return;
-        }
-
-
-        const cards = qsa(
-            ".performance-stat"
-        );
-
-
-        cards.forEach((card) => {
-            let frame = null;
-
-
-            const reset = () => {
-                card.style.transform = "";
-            };
-
-
-            card.addEventListener(
-                "pointermove",
-                (event) => {
-                    if (frame) {
-                        window.cancelAnimationFrame(
-                            frame
-                        );
-                    }
-
-
-                    frame =
-                        window.requestAnimationFrame(
-                            () => {
-                                const rect =
-                                    card.getBoundingClientRect();
-
-
-                                const x =
-                                    (
-                                        event.clientX -
-                                        rect.left
-                                    ) /
-                                    rect.width -
-                                    0.5;
-
-
-                                const y =
-                                    (
-                                        event.clientY -
-                                        rect.top
-                                    ) /
-                                    rect.height -
-                                    0.5;
-
-
-                                card.style.transform =
-                                    `perspective(800px)
-                                     rotateX(${-y * 2.2}deg)
-                                     rotateY(${x * 2.2}deg)
-                                     translateY(-2px)`;
-                            }
-                        );
-                }
-            );
-
-
-            card.addEventListener(
-                "pointerleave",
-                reset
-            );
-        });
-    };
-
-
-    
-
     const initRobotDepth = () => {
         const section = qs(
             ".robot-marquee"
@@ -1294,8 +1213,6 @@
         initCounters();
 
         initParallax();
-
-        initCardDepth();
 
         initRobotDepth();
 
