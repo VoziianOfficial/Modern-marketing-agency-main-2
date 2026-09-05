@@ -686,6 +686,7 @@
     display: grid;
     grid-template-columns:
         repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
     align-items: stretch;
 
     gap: 14px;
@@ -701,9 +702,9 @@
     flex-direction: column;
 
     height: 100%;
-    min-height: 242px;
+    min-height: 0;
 
-    padding: 22px;
+    padding: 24px;
 
     background: var(--color-off-white);
 
@@ -751,8 +752,8 @@
 
 .capability-card__icon {
     position: absolute;
-    top: 18px;
-    right: 18px;
+    top: 20px;
+    right: 20px;
 
     display: grid;
     place-items: center;
@@ -790,19 +791,19 @@
 }
 
 .capability-card h3 {
-    max-width: calc(100% - 58px);
+    max-width: calc(100% - 64px);
 
     margin-top: 0;
 
-    font-size: 20px;
-    line-height: 1.12;
+    font-size: 22px;
+    line-height: 1.1;
 }
 
 .capability-card p {
-    margin-top: 10px;
+    margin-top: 12px;
 
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.48;
 }
 
 .capability-card__meta {
@@ -810,8 +811,8 @@
     align-items: center;
     gap: 7px;
 
-    margin-top: auto;
-    padding-top: 16px;
+    margin-top: 16px;
+    padding-top: 0;
 }
 
 .capability-card__meta span {
@@ -820,13 +821,13 @@
     width: 7px;
     height: 7px;
 
-    background: var(--color-lilac);
+    background: var(--capability-accent);
 
     border-radius: 50%;
 }
 
 .capability-card__meta small {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
 
     color: var(--color-text-soft);
@@ -1687,7 +1688,7 @@
     }
 
     .capability-card {
-        min-height: 230px;
+        min-height: 0;
     }
 
 
@@ -1957,7 +1958,7 @@
     }
 
     .capability-card {
-        min-height: 218px;
+        min-height: 0;
     }
 
     .service-marquee {
@@ -2159,9 +2160,31 @@
     }
 
     .capability-card {
-        min-height: 210px;
+        min-height: 0;
 
-        padding: 21px;
+        padding: 20px;
+    }
+
+    .capability-card__icon {
+        top: 17px;
+        right: 17px;
+
+        width: 39px;
+        height: 39px;
+    }
+
+    .capability-card h3 {
+        max-width: calc(100% - 56px);
+
+        font-size: 20px;
+    }
+
+    .capability-card p {
+        font-size: 13px;
+    }
+
+    .capability-card__meta {
+        margin-top: 14px;
     }
 
     .service-split__visual {
