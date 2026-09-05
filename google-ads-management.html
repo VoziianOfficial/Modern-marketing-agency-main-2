@@ -254,22 +254,22 @@
                         About
                     </a>
 
-                    <a
-                        class="mobile-menu__link"
-                        href="index.html#services">
-                        Services
-                    </a>
+                    <button
+                        class="mobile-menu__link mobile-menu__link--services"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="mobile-services"
+                        data-mobile-services-toggle
+                    >
+                        <span>Services</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
 
-                    <a
-                        class="mobile-menu__link"
-                        href="index.html#contact">
-                        Contact
-                    </a>
-
-                </nav>
-
-
-                <div class="mobile-menu__services">
+                    <div
+                        class="mobile-menu__services"
+                        id="mobile-services"
+                        data-mobile-services
+                    >
 
                     <a
                         class="mobile-menu__service"
@@ -299,8 +299,14 @@
                      data-config-text="services.trackingAutomation.title">
                         Tracking &amp; Automation
                     </a>
+                    </div>
 
-                </div>
+                    <a
+                        class="mobile-menu__link"
+                        href="index.html#contact">
+                        Contact
+                    </a>
+                </nav>
 
             </div>
 
@@ -1828,10 +1834,10 @@
                         ></span>
 
                         <img
-                            src="assets/img/svg/data-analytics.svg"
+                            src="assets/img/services/google-ads-service-data.png"
                             alt="Google Ads analytics and conversion data illustration"
-                            width="760"
-                            height="560"
+                            width="1411"
+                            height="1114"
                             loading="lazy"
                         >
 
@@ -1856,7 +1862,7 @@
 
                     <img
                         class="service-parallax__image"
-                        src="assets/img/parallax/google-ads-performance.webp"
+                        src="assets/img/parallax/performance-campaign.webp"
                         alt="Google Ads performance campaign visual"
                         loading="lazy"
                     >

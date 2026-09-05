@@ -216,21 +216,22 @@
                         About
                     </a>
 
-                    <a
-                        class="mobile-menu__link"
-                        href="index.html#services">
-                        Services
-                    </a>
+                    <button
+                        class="mobile-menu__link mobile-menu__link--services"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="mobile-services"
+                        data-mobile-services-toggle
+                    >
+                        <span>Services</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
 
-                    <a
-                        class="mobile-menu__link"
-                        href="index.html#contact">
-                        Contact
-                    </a>
-                </nav>
-
-
-                <div class="mobile-menu__services">
+                    <div
+                        class="mobile-menu__services"
+                        id="mobile-services"
+                        data-mobile-services
+                    >
 
                     <a
                         class="mobile-menu__service"
@@ -259,8 +260,14 @@
                      data-config-text="services.trackingAutomation.title">
                         Tracking &amp; Automation
                     </a>
+                    </div>
 
-                </div>
+                    <a
+                        class="mobile-menu__link"
+                        href="index.html#contact">
+                        Contact
+                    </a>
+                </nav>
 
             </div>
 

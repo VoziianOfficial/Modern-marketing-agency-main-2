@@ -553,6 +553,63 @@
             return;
         }
 
+        const servicesToggle = qs(
+            "[data-mobile-services-toggle]",
+            menu
+        );
+
+        const servicesPanel = qs(
+            "[data-mobile-services]",
+            menu
+        );
+
+
+        const closeServices = () => {
+            if (!servicesToggle || !servicesPanel) {
+                return;
+            }
+
+            servicesToggle.classList.remove(
+                "is-open"
+            );
+
+            servicesPanel.classList.remove(
+                "is-open"
+            );
+
+            servicesToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        };
+
+
+        const toggleServices = () => {
+            if (!servicesToggle || !servicesPanel) {
+                return;
+            }
+
+            const willOpen =
+                !servicesPanel.classList.contains(
+                    "is-open"
+                );
+
+            servicesToggle.classList.toggle(
+                "is-open",
+                willOpen
+            );
+
+            servicesPanel.classList.toggle(
+                "is-open",
+                willOpen
+            );
+
+            servicesToggle.setAttribute(
+                "aria-expanded",
+                willOpen ? "true" : "false"
+            );
+        };
+
 
         const lockBody = () => {
             scrollLockPadding =
@@ -660,6 +717,8 @@
                 "true"
             );
 
+            closeServices();
+
             unlockBody();
 
             if (returnFocus) {
@@ -680,6 +739,14 @@
                 }
             }
         );
+
+
+        if (servicesToggle) {
+            servicesToggle.addEventListener(
+                "click",
+                toggleServices
+            );
+        }
 
 
         menu.addEventListener(
