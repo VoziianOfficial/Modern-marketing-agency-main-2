@@ -330,6 +330,8 @@
 
 
 .home-services {
+    --section-space: clamp(37px, 3.5vw, 59px);
+
     background: var(--color-white);
 }
 
@@ -592,6 +594,8 @@
 
 
 .home-about {
+    --section-space: clamp(37px, 3.5vw, 59px);
+
     background: var(--color-off-white);
 }
 
@@ -783,7 +787,7 @@
 
 
 .home-service-list {
-    padding-block: clamp(58px, 6vw, 92px);
+    padding-block: clamp(29px, 3vw, 46px);
 
     background: var(--color-white);
 }
@@ -895,14 +899,64 @@
     color: var(--color-text-soft);
 }
 
-.home-service-list__button {
-    min-height: 52px;
+.home-service-list__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 
     margin-top: 32px;
-    padding-inline: 26px;
+}
+
+.home-service-list__button {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: 52px;
+
+    padding-inline: 30px;
 
     font-size: 11px;
     text-transform: uppercase;
+
+    border-width: 0;
+
+    box-shadow:
+        0 16px 30px rgba(255, 107, 61, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.home-service-list__button::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            115deg,
+            rgba(255, 255, 255, 0.28),
+            rgba(255, 255, 255, 0)
+        );
+
+    opacity: 0;
+
+    transition: opacity var(--transition-fast);
+}
+
+.home-service-list__button:hover::before {
+    opacity: 1;
+}
+
+.home-service-list__button.btn--outline {
+    color: var(--color-navy);
+    background:
+        linear-gradient(135deg, #ffffff 0%, #fff4ef 100%);
+    border: 1px solid rgba(255, 107, 61, 0.36);
+    box-shadow:
+        0 14px 28px rgba(39, 34, 82, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.82);
 }
 
 .home-service-list__visual {
@@ -925,6 +979,8 @@
 
 
 .home-offer {
+    --section-space: clamp(37px, 3.5vw, 59px);
+
     background: var(--color-white);
 }
 
@@ -1215,7 +1271,7 @@
 .home-highlights__panel {
     position: relative;
 
-    padding: clamp(64px, 7vw, 92px) clamp(24px, 4vw, 56px) clamp(36px, 4vw, 48px);
+    padding: clamp(34px, 4vw, 54px) clamp(24px, 4vw, 56px) clamp(26px, 3vw, 36px);
 
     background: var(--color-off-white);
 
@@ -1957,6 +2013,8 @@
 
 
 .home-testimonials {
+    --section-space: clamp(37px, 3.5vw, 59px);
+
     background: var(--color-off-white);
 }
 
@@ -2191,6 +2249,8 @@
 
 
 .home-faq {
+    --section-space: clamp(37px, 3.5vw, 59px);
+
     background: var(--color-white);
 }
 
@@ -2343,6 +2403,18 @@
 
 .home-contact__email:hover {
     color: var(--color-lilac);
+}
+
+.home-contact__brand {
+    width: min(240px, 68%);
+    margin-top: 34px;
+}
+
+.home-contact__brand img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .home-contact__form {
@@ -2649,6 +2721,14 @@
 
 @media (max-width: 767px) {
 
+    .home-services,
+    .home-about,
+    .home-offer,
+    .home-testimonials,
+    .home-faq {
+        --section-space: 32px;
+    }
+
     .home-contact {
         --section-space: 32px;
     }
@@ -2806,7 +2886,7 @@
     }
 
     .home-service-list {
-        padding-block: 34px;
+        padding-block: 17px;
     }
 
     .home-service-list__grid {
@@ -2836,8 +2916,16 @@
         font-size: 14px;
     }
 
-    .home-service-list__button {
+    .home-service-list__actions {
+        gap: 10px;
         margin-top: 24px;
+    }
+
+    .home-service-list__button {
+        flex: 1 1 150px;
+        justify-content: center;
+        min-width: 0;
+        padding-inline: 20px;
     }
 
     .home-service-list__visual {
@@ -3099,6 +3187,12 @@
 
     .home-contact__email {
         margin-inline: auto;
+    }
+
+    .home-contact__brand {
+        width: min(220px, 66%);
+        margin-inline: auto;
+        margin-top: 24px;
     }
 
     .home-contact__form {
