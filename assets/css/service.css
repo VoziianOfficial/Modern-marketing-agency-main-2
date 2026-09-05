@@ -288,9 +288,11 @@
 .service-overview__points {
     display: grid;
     grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(3, max-content);
 
     gap: 10px;
+    align-items: start;
+    justify-content: start;
 
     margin-top: 27px;
 }
@@ -301,6 +303,7 @@
     gap: 10px;
 
     min-height: 54px;
+    width: fit-content;
 
     padding: 11px 13px;
 
@@ -1873,7 +1876,9 @@
     }
 
     .service-overview__points {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            repeat(2, max-content);
+        justify-content: center;
     }
 
     .service-overview__point {
@@ -2149,6 +2154,10 @@
 
     .service-overview__visual {
         min-height: 290px;
+    }
+
+    .service-overview__points {
+        grid-template-columns: max-content;
     }
 
     .service-tab-panel__content {
