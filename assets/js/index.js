@@ -336,19 +336,14 @@
                 },
 
                 breakpoints: {
-                    680: {
-                        slidesPerView: 1.35,
-                        spaceBetween: 16
-                    },
-
-                    900: {
-                        slidesPerView: 1.55,
+                    768: {
+                        slidesPerView: 2,
                         spaceBetween: 18
                     },
 
                     1200: {
                         slidesPerView: 2,
-                        spaceBetween: 18
+                        spaceBetween: 20
                     }
                 },
 

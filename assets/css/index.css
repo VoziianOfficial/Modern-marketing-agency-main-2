@@ -1540,7 +1540,9 @@
 }
 
 .testimonials-swiper {
-    overflow: visible;
+    min-width: 0;
+
+    overflow: hidden;
 }
 
 .testimonial-card {
