@@ -900,6 +900,120 @@
 
     
 
+    const initProofSwipers = () => {
+        const swipers = qsa(
+            ".service-proof-swiper"
+        );
+
+        if (
+            !swipers.length ||
+            !window.Swiper
+        ) {
+            return;
+        }
+
+
+        swipers.forEach(
+            (swiperElement) => {
+                const pagination =
+                    qs(
+                        ".swiper-pagination",
+                        swiperElement
+                    );
+
+
+                const swiper =
+                    new window.Swiper(
+                        swiperElement,
+                        {
+                            loop: true,
+
+                            loopAdditionalSlides: 2,
+
+                            speed:
+                                prefersReducedMotion
+                                    ? 0
+                                    : 680,
+
+                            slidesPerView: 1,
+
+                            spaceBetween: 18,
+
+                            grabCursor:
+                                !prefersReducedMotion,
+
+                            pagination: {
+                                el: pagination,
+                                clickable: true
+                            },
+
+                            keyboard: {
+                                enabled: true,
+                                onlyInViewport: true
+                            },
+
+                            autoplay:
+                                prefersReducedMotion
+                                    ? false
+                                    : {
+                                        delay: 4200,
+                                        disableOnInteraction: false,
+                                        pauseOnMouseEnter: true
+                                    },
+
+                            breakpoints: {
+                                768: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 22
+                                },
+
+                                1100: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 24
+                                }
+                            },
+
+                            on: {
+                                init() {
+                                    window.SiteUI
+                                        ?.refresh?.();
+                                },
+
+                                resize() {
+                                    window.SiteUI
+                                        ?.refresh?.();
+                                }
+                            }
+                        }
+                    );
+
+
+                doc.addEventListener(
+                    "visibilitychange",
+                    () => {
+                        if (
+                            !swiper.autoplay
+                        ) {
+                            return;
+                        }
+
+
+                        if (doc.hidden) {
+                            swiper.autoplay.stop();
+                        } else if (
+                            !prefersReducedMotion
+                        ) {
+                            swiper.autoplay.start();
+                        }
+                    }
+                );
+            }
+        );
+    };
+
+
+
+
     const initServiceCounters = () => {
         const counters = qsa(
             "[data-service-counter]"
@@ -1822,6 +1936,8 @@
         initServiceTabs();
 
         initResultsSwipers();
+
+        initProofSwipers();
 
         initServiceCounters();
 
