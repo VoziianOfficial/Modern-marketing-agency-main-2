@@ -187,12 +187,6 @@
                 window.ScrollTrigger.refresh();
             }
 
-            if (
-                window.AOS &&
-                typeof window.AOS.refresh === "function"
-            ) {
-                window.AOS.refresh();
-            }
         }, 90);
     };
 
@@ -1578,56 +1572,47 @@
 
     
 
-    const initAOS = () => {
-        if (
-            prefersReducedMotion ||
-            !window.AOS ||
-            typeof window.AOS.init !==
-                "function"
-        ) {
+    const initReveal = () => {
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        if (!revealElements.length) {
             return;
         }
 
+        if (
+            prefersReducedMotion ||
+            !("IntersectionObserver" in window)
+        ) {
+            revealElements.forEach((element) => {
+                element.classList.add("is-visible");
+            });
 
-        
+            return;
+        }
 
-        html.classList.add(
-            "aos-enabled"
-        );
+        const revealObserver =
+            new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) return;
 
+                        entry.target.classList.add(
+                            "is-visible"
+                        );
+                        observer.unobserve(entry.target);
+                    });
+                },
+                {
+                    threshold: 0.12,
+                    rootMargin:
+                        "0px 0px -40px 0px"
+                }
+            );
 
-        window.AOS.init({
-            once: true,
-
-            mirror: false,
-
-            offset: 45,
-
-            duration: 620,
-
-            delay: 0,
-
-            easing:
-                "ease-out-cubic",
-
-            anchorPlacement:
-                "top-bottom",
-
-            disableMutationObserver:
-                false
+        revealElements.forEach((element) => {
+            revealObserver.observe(element);
         });
-
-
-        
-
-        window.setTimeout(() => {
-            if (
-                typeof window.AOS.refreshHard ===
-                "function"
-            ) {
-                window.AOS.refreshHard();
-            }
-        }, 250);
     };
 
 
@@ -1814,7 +1799,7 @@
 
         initLucide();
 
-        initAOS();
+        initReveal();
 
         initImageRefresh();
 

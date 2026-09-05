@@ -2375,13 +2375,26 @@ select.form-control {
 
 
 
-[data-aos] {
-    will-change: transform, opacity;
+.reveal {
+    opacity: 0;
+    translate: 0 14px;
+    transition:
+        opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        translate 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-html:not(.aos-enabled) [data-aos] {
-    opacity: 1 !important;
-    transform: none !important;
+.reveal.is-visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal {
+        opacity: 1;
+        translate: 0 0;
+        transition: none;
+    }
 }
 
 

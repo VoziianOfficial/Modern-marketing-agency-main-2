@@ -2471,11 +2471,6 @@
         overflow: hidden;
     }
 
-    .service-data__visual[data-aos] {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-
     .service-data__visual img,
     .service-data__visual svg {
         width: min(82vw, 390px);

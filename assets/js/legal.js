@@ -740,91 +740,6 @@
 
     
 
-    const initLegalContact = () => {
-        const cards = qsa(
-            ".legal-contact"
-        );
-
-
-        if (
-            !cards.length ||
-            prefersReducedMotion ||
-            !window.gsap ||
-            !window.ScrollTrigger
-        ) {
-            return;
-        }
-
-
-        cards.forEach(
-            (card) => {
-
-                const content =
-                    qs(
-                        ".legal-contact__content",
-                        card
-                    );
-
-
-                const action =
-                    qs(
-                        ".legal-contact__action",
-                        card
-                    );
-
-
-                if (content) {
-                    window.gsap.fromTo(
-                        content,
-                        {
-                            y: 18,
-                            opacity: 0
-                        },
-                        {
-                            y: 0,
-                            opacity: 1,
-                            duration: 0.65,
-                            ease: "power2.out",
-
-                            scrollTrigger: {
-                                trigger: card,
-                                start: "top 88%",
-                                once: true
-                            }
-                        }
-                    );
-                }
-
-
-                if (action) {
-                    window.gsap.fromTo(
-                        action,
-                        {
-                            y: 12,
-                            opacity: 0
-                        },
-                        {
-                            y: 0,
-                            opacity: 1,
-                            duration: 0.6,
-                            delay: 0.08,
-                            ease: "power2.out",
-
-                            scrollTrigger: {
-                                trigger: card,
-                                start: "top 88%",
-                                once: true
-                            }
-                        }
-                    );
-                }
-            }
-        );
-    };
-
-
-    
-
     const initHashSync = () => {
         window.addEventListener(
             "hashchange",
@@ -916,8 +831,6 @@
         initMobileTOC();
 
         initLegalTables();
-
-        initLegalContact();
 
         initHashSync();
 
