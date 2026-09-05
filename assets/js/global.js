@@ -16,6 +16,10 @@
         "(prefers-reduced-motion: reduce)"
     ).matches;
 
+    const hasCoarsePointer = window.matchMedia(
+        "(hover: none), (pointer: coarse)"
+    ).matches;
+
     const MOBILE_BREAKPOINT = 1200;
 
     let menuOpen = false;
@@ -174,6 +178,25 @@
     };
 
 
+    const restoreScrollPosition = (scrollY) => {
+        window.requestAnimationFrame(() => {
+            if (
+                Math.abs(window.scrollY - scrollY) < 2
+            ) {
+                return;
+            }
+
+            const previousScrollBehavior =
+                html.style.scrollBehavior;
+
+            html.style.scrollBehavior = "auto";
+            window.scrollTo(0, scrollY);
+            html.style.scrollBehavior =
+                previousScrollBehavior;
+        });
+    };
+
+
     
 
     const requestRefresh = () => {
@@ -184,7 +207,19 @@
                 window.ScrollTrigger &&
                 typeof window.ScrollTrigger.refresh === "function"
             ) {
+                const shouldPreserveScroll =
+                    hasCoarsePointer &&
+                    !window.location.hash;
+
+                const scrollY = shouldPreserveScroll
+                    ? window.scrollY
+                    : null;
+
                 window.ScrollTrigger.refresh();
+
+                if (shouldPreserveScroll) {
+                    restoreScrollPosition(scrollY);
+                }
             }
 
         }, 90);
@@ -1415,6 +1450,29 @@
                         if (
                             !form.checkValidity()
                         ) {
+                            const firstInvalid =
+                                qs(":invalid", form);
+
+                            if (hasCoarsePointer) {
+                                const scrollY =
+                                    window.scrollY;
+
+                                showStatus(
+                                    "Please complete the required fields.",
+                                    "error"
+                                );
+
+                                firstInvalid?.focus({
+                                    preventScroll: true
+                                });
+
+                                restoreScrollPosition(
+                                    scrollY
+                                );
+
+                                return;
+                            }
+
                             form.reportValidity();
                             return;
                         }
