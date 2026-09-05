@@ -851,6 +851,143 @@
 
     
 
+    const initPerformanceStats = () => {
+        const section = qs(
+            "[data-performance-stats]"
+        );
+
+        if (!section) {
+            return;
+        }
+
+
+        const bars = qsa(
+            "[data-progress]",
+            section
+        );
+
+        if (!bars.length) {
+            return;
+        }
+
+
+        const animateBars = () => {
+            if (
+                section.dataset.progressAnimated ===
+                "true"
+            ) {
+                return;
+            }
+
+
+            section.dataset.progressAnimated =
+                "true";
+
+
+            bars.forEach(
+                (bar, index) => {
+                    const target =
+                        Number.parseFloat(
+                            bar.dataset.progress
+                        );
+
+
+                    if (
+                        Number.isNaN(target)
+                    ) {
+                        return;
+                    }
+
+
+                    if (
+                        prefersReducedMotion
+                    ) {
+                        bar.style.setProperty(
+                            "--progress",
+                            `${target}%`
+                        );
+
+                        return;
+                    }
+
+
+                    window.setTimeout(
+                        () => {
+                            bar.style.setProperty(
+                                "--progress",
+                                `${target}%`
+                            );
+                        },
+                        index * 120
+                    );
+                }
+            );
+        };
+
+
+        if (
+            window.ScrollTrigger &&
+            window.gsap
+        ) {
+            window.ScrollTrigger.create({
+                trigger: section,
+
+                start:
+                    "top 86%",
+
+                once: true,
+
+                onEnter() {
+                    animateBars();
+                }
+            });
+
+            return;
+        }
+
+
+        if (
+            "IntersectionObserver"
+            in window
+        ) {
+            const observer =
+                new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(
+                            (entry) => {
+                                if (
+                                    !entry.isIntersecting
+                                ) {
+                                    return;
+                                }
+
+
+                                animateBars();
+
+                                observer.disconnect();
+                            }
+                        );
+                    },
+                    {
+                        threshold: 0.35
+                    }
+                );
+
+
+            observer.observe(
+                section
+            );
+
+            return;
+        }
+
+
+        animateBars();
+    };
+
+
+    
+
     const initParallax = () => {
         const sections = qsa(
             "[data-parallax-section]"
@@ -1206,6 +1343,8 @@
         initCaseStudies();
 
         initCounters();
+
+        initPerformanceStats();
 
         initParallax();
 
