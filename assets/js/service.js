@@ -1497,7 +1497,10 @@
         if (
             prefersReducedMotion ||
             !window.gsap ||
-            !window.ScrollTrigger
+            !window.ScrollTrigger ||
+            window.matchMedia(
+                "(max-width: 767px)"
+            ).matches
         ) {
             return;
         }
